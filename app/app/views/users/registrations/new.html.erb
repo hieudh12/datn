@@ -1,0 +1,124 @@
+<% content_for :head do %>
+<style>
+.login-container{
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+.login-form-1{
+    padding: 5%;
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
+}
+.login-form-1 h3{
+    text-align: center;
+    color: #333;
+}
+.login-form-2{
+    padding: 5%;
+    background: #0062cc;
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
+}
+.login-form-2 h3{
+    text-align: center;
+    color: #fff;
+}
+.login-container form{
+    padding: 10%;
+}
+.btnSubmit
+{
+    width: 50%;
+    border-radius: 1rem;
+    padding: 1.5%;
+    border: none;
+    cursor: pointer;
+}
+.login-form-1 .btnSubmit{
+    font-weight: 600;
+    color: #fff;
+    background-color: #0062cc;
+}
+.login-form-2 .btnSubmit{
+    font-weight: 600;
+    color: #0062cc;
+    background-color: #fff;
+}
+.login-form-2 .ForgetPwd{
+    color: #fff;
+    font-weight: 600;
+    text-decoration: none;
+}
+.login-form-1 .ForgetPwd{
+    color: #0062cc;
+    font-weight: 600;
+    text-decoration: none;
+}
+</style>
+<% end %>
+
+<% if false %>
+<div class="text-center">
+  <h2>Sign up</h2>
+
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+
+    <div class="field">
+      <%= f.label :email %><br />
+      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    </div>
+    <div class=”field”>
+    <%= f.label :username %><br />
+    <%= f.text_field :username, autofocus: true, autocomplete: “username” %>
+    </div>
+    <div class="field">
+      <%= f.label :password %>
+      <% if @minimum_password_length %>
+      <em>(<%= @minimum_password_length %> characters minimum)</em>
+      <% end %><br />
+      <%= f.password_field :password, autocomplete: "new-password" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :password_confirmation %><br />
+      <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "Sign up" %>
+    </div>
+  <% end %>
+
+  <%= render "devise/shared/links" %>
+</div>
+<% end %>
+
+<div class="container login-container">
+  <div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6 login-form-1">
+      <h2 class="text-center">Sign up</h2>
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= render "devise/shared/error_messages", resource: resource %>
+        <div class="form-group">
+          <input type="email" autocomplete="email" class="form-control" name="user[email]" id="user_email" placeholder="Your Email *" value="" />
+        </div>
+        <div class="form-group">
+          <input type="text" autocomplete="username" class="form-control" name="user[username]" id="user_username" placeholder="Your Name *" value="" required/>
+        </div>
+        <div class="form-group">
+          <input type="password" autocomplete="new-password" name="user[password]" id="user_password" class="form-control" placeholder="Enter your password *" value="" />
+        </div>
+        <div class="form-group">
+          <input type="password" autocomplete="new-password" name="user[password_confirmation]" id="user_password_confirmation" class="form-control" placeholder="Enter your password again *" value="" />
+        </div>
+        <div class="form-group">
+          <input type="submit" name="commit" data-disable-with="Signup" class="btnSubmit" value="Signup" />
+        </div>
+        <div class="form-group">
+          <%= render "users/shared/links" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+

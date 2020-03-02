@@ -1,0 +1,107 @@
+<div class="premium-page">
+  <div class="container">
+    <h1 class="mt-50" id="top">Premium account</h1>
+
+    <p>This is a list of questions related to the Recipe's premium account.</p>
+
+    <ul>
+      <li>
+        <a href="#q1"> - What are the advantages of a premium account?</a>
+      </li>
+      <li>
+        <a href="#q2"> - I've got a basic account. Can I upgrade it to a premium account?</a>
+      </li>
+      <li>
+        <a href="#q3"> - How much does a premium account cost?</a>
+      </li>
+      <li>
+        <a href="#q4"> - I would to track the results of my users. Can I do that with a premium account?</a>
+      </li>
+      <li>
+        <a href="#q5"> - How do I pay for a premium account? </a>
+      </li>
+      <li>
+        <a href="#q6"> - Is there a notice period for canceling a premium account?</a>
+      </li>
+      <li>
+        <a href="#q7"> - What happens to my premium account if I don't renew my subscription?</a>
+      </li>
+    </ul>
+
+    <h4 class="mt-30" id="q1">What are the advantages of a premium account?</h4>
+    <p>
+      A premium account offers a couple of valuable learning functionalities that make learning easier. Premium account
+      holders are able to convert speech to text (nine languages), create and do tests and set learning objectives for
+      yourself or others.
+    </p>
+    <p>
+      It is also possible to create groups of external participants and add drills and tests to those groups and track
+      the progress of participants. A premium account offers an unlimited storage capacity and the ability to sell your
+      own drills or courses in the Drill Store, making it possible to earn money with your learning material. See also
+      our page about the premium account.
+    </p>
+    <a href="#top">Back to top</a>
+
+
+    <h4 class="mt-30" id="q2">I've got a basic account. Can I upgrade it to a premium account?</h4>
+    <p>
+      Yes, you can. Log in using the username and password of your basic account. Go to ‘My profile’, by clicking on
+      your name in the top right corner. Near ‘Account type’ there is a blue button labelled ‘Upgrade to premium
+      account’. Click this button and follow the instructions.
+    </p>
+    <a href="#top">Back to top</a>
+
+
+    <h4 class="mt-30" id="q3">How much does a premium account cost?</h4>
+
+    <p>
+      There are two plans for a premium account. You can choose to pay monthly or for one year. A premium account is €
+      5.95 per month, or just € 59.50 for an entire year. The annual plan gives you two months for free.
+    </p>
+    <a href="#top">Back to top</a>
+
+
+
+    <h4 class="mt-30" id="q4">I would to track the results of my users. Can I do that with a premium account?</h4>
+    <p>
+      Yes, tracking the progress of users in a group you have created is one of the many functionalities of the premium
+      account.
+    </p>
+
+    <a href="#top">Back to top</a>
+
+
+
+    <h4 class="mt-30" id="q5">How do I pay for a premium account?</h4>
+    <p>
+      An upgrade to a premium account is paid for through PayPal. PayPal offers various payment options.
+    </p>
+
+    <a href="#top">Back to top</a>
+
+
+
+    <h4 class="mt-30" id="q6">Is there a notice period for canceling a premium account?</h4>
+    <p>
+      If you are on the monthly plan, you can cancel any month. The annual plan is not automatically renewed.
+    </p>
+
+    <a href="#top">Back to top</a>
+
+    <h4 class="mt-30" id="q7">What happens to my premium account if I don't renew my subscription?</h4>
+    <p>
+      A premium account that is not renewed will automatically be downgraded to a free basic account. Features that are
+      only available to premium account holders will no longer be available.
+    </p>
+    <p>
+      The storage limit for the basic account will also be enforced, which may mean that not all drills in your
+      repertoire will be accessible. In no case will any data be discarded.
+    </p>
+    <a href="#top">Back to top</a>\
+  </div>
+  <% if !current_user&.is_premium? %>
+  <div class="full-width purchase-btn text-center" style="z-index: 10;">
+    <a class="btn btn-primary" href="<%= get_purchase_premium_path %>">Purchase premium now</a>
+  </div>
+  <% end %>
+</div>

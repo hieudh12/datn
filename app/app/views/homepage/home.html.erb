@@ -1,0 +1,36 @@
+<!-- ##### Hero Area Start ##### -->
+<div class="hero-area">
+  <!-- Hero Post Slides -->
+  <div class="hero-post-slides owl-carousel">
+    <% Category.all.each do |category| %>
+      <!-- Single Slide -->
+      <div class="single-slide">
+        <!-- Blog Thumbnail -->
+        <div class="blog-thumbnail">
+          <a href="#"><img src="/assets/bg-img/<%= rand(3) + 1 %>.jpg" alt=""></a>
+        </div>
+
+        <!-- Blog Content -->
+        <div class="blog-content-bg">
+          <div class="blog-content">
+            <a href="<%= recipes_path params: {query: category.name, type: :category} %>" class="post-title"><%= category.name %></a>
+            <p class="description"><%= category.description %></p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+<!-- ##### Hero Area End ##### -->
+
+<!-- ##### Catagory Area Start ##### -->
+<div class="post-catagory section-padding-100-0 mb-70">
+  <div class="container">
+    <h3 class="custom-h3 mb-30">Recommended</h3>
+    <div class="row justify-content-center">
+      <!-- Single Post Catagory -->
+      <%= render 'recipes/recipe_list', recipes: @recipes %>
+    </div>
+  </div>
+</div>
+<!-- ##### Catagory Area End ##### --> 

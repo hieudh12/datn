@@ -1,0 +1,23 @@
+<!-- ##### Posts Area End ##### -->
+<div class="bueno-post-area mb-70">
+  <div class="container">
+    <div class="row justify-content-center">
+
+      <!-- Post Area -->
+      <div class="col-12 col-lg-9 col-xl-10 mt-100 order-lg-2">
+        <h3 class="custom-h3 mb-30 text-left">
+          Bookmarked Items
+        </h3>
+        <% if @recipes.count > 0 %>
+          <%= render 'recipes/recipe_list', recipes: @recipes %>
+        <% else %>
+          <h2 class="text-secondary">You have not bookmarked any recipe</h2>
+        <% end %>
+      </div>
+
+      <!-- Sidebar Area -->
+
+    </div>
+  </div>
+</div>
+<!-- ##### Posts Area End ##### -->

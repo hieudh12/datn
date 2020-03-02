@@ -1,0 +1,128 @@
+<style>
+    .login-container {
+        margin-top: 5%;
+        margin-bottom: 5%;
+    }
+
+    .login-form-1 {
+        padding: 5%;
+        box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
+    }
+
+    .login-form-1 h3 {
+        text-align: center;
+        color: #333;
+    }
+
+    .login-form-2 {
+        padding: 5%;
+        background: #0062cc;
+        box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
+    }
+
+    .login-form-2 h3 {
+        text-align: center;
+        color: #fff;
+    }
+
+    .login-container form {
+        padding: 5% 10% 10% 10%;
+    }
+
+    .btnSubmit {
+        width: 50%;
+        border-radius: 1rem;
+        padding: 1.5%;
+        border: none;
+        cursor: pointer;
+    }
+
+    .login-form-1 .btnSubmit {
+        font-weight: 600;
+        color: #fff;
+        background-color: #0062cc;
+    }
+
+    .login-form-2 .btnSubmit {
+        font-weight: 600;
+        color: #0062cc;
+        background-color: #fff;
+    }
+
+    .login-form-2 .ForgetPwd {
+        color: #fff;
+        font-weight: 600;
+        text-decoration: none;
+    }
+
+    .login-form-1 .ForgetPwd {
+        color: #0062cc;
+        font-weight: 600;
+        text-decoration: none;
+    }
+
+    .premium-subscribed {
+        margin-bottom: 5%;
+    }
+</style>
+<div class="container login-container">
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8 login-form-1">
+            <h2 class="text-center">Profile</h2>
+            <%= form_for(@user, :url => url_for(:controller => 'users', :action => 'update_profile'), method: "post") do |f| %>
+              <%= content_tag(:div, flash[:error], :id => "flash_error") if flash[:error] %>
+              <%= content_tag(:div, flash[:notice], :id => "flash_notice") if flash[:notice] %>
+            <% if current_user.is_premium? %>
+            <div class="alert alert-success premium-subscribe" role="alert">
+                Your account is <strong>PREMIUM ACCOUNT</strong>
+                <br>
+                Expires at <%= current_user.active_premium.expries_at.strftime('%Y-%m-%d') %>
+            </div>
+            <% elsif %>
+            <div class="alert alert-warning premium-subscribe" role="alert">
+                <div class="row">
+                    <div class="col-md-8">
+                        Upgrade your account to <strong>PREMIUM</strong>
+                    </div>
+                    <div class="col-md-4">
+                        <a href="/premium/info"><button type="button" class="btn btn-warning pull-right">UPGRADE</button></a>
+                    </div>
+                </div>
+            </div>
+            <% end %>
+            <div class="row">
+                <div class="col-md-6 text-center">
+                    <img src="<%= current_user.avatar ? current_user.avatar.url : 'assets/avatar/default-avatar.jpg' %>" alt="avatar">
+                    <%= f.file_field :avatar%>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="">Email (*)</label>
+                        <input type="email" autocomplete="email" class="form-control" name="user[email]" id="user_email"
+                            placeholder="Your Email *" value="<%= @user.email%>" />
+                    </div>
+                    <div class="form-group">
+                        <label for="">Username (*)</label>
+                        <input type="text" autocomplete="username" class="form-control" name="user[username]"
+                            id="user_username" placeholder="Your Name *" value="<%= @user.username%>" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="">Change password</label>
+                        <input type="password" class="form-control" name="user[current_password]"
+                            id="user_username" placeholder="Current Password *" value="" />
+                        <input type="password" class="form-control" name="user[password]"
+                            id="user_username" placeholder="New Password *" value="" />
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" name="commit" class="btnSubmit" value="Update""/>
+                    </div>
+                </div>
+            </div>
+            <% end %>
+        </div>
+
+    </div>
+    <div class="col-md-2"></div>
+</div>
+</div>

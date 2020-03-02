@@ -1,0 +1,59 @@
+// Place all the styles related to the Recipes controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.recipe-item {
+  .recipe-image:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    transition: all 0.8s;
+    background-size: 100% 100%;
+    background: linear-gradient(to bottom, rgba(256, 256, 256, 0.1), rgba(0, 0, 0, .8));
+  }
+  
+  .premium-label {
+    z-index: 10;
+    position: absolute;
+    bottom: 5px;
+    left: 10px;
+
+    p {
+      color: gold;
+      font-weight: bold;
+    }
+  }
+
+  .rating-avg {
+    color: black;
+    font-size: 13px;
+    font-weight: lighter;
+  }
+}
+
+.recipe-detail {
+  position: relative;
+
+  .recipe-image {
+    &:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      transition: all 0.8s;
+      background-size: 100% 100%;
+      background: linear-gradient(to top, rgba(256, 256, 256, 0.1), rgba(256, 256, 256, 0.5));
+    }
+
+    .recipe-bookmark {
+      position: absolute;
+      top: 5%;
+      right: 5%;
+    }
+  }
+}

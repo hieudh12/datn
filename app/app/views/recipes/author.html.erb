@@ -1,0 +1,125 @@
+<style>
+    .login-container {
+        margin-top: 5%;
+        margin-bottom: 5%;
+    }
+
+    .login-form-1 {
+        padding: 5%;
+        box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
+    }
+
+    .login-form-1 h3 {
+        text-align: center;
+        color: #333;
+    }
+
+    .login-form-2 {
+        padding: 5%;
+        background: #0062cc;
+        box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
+    }
+
+    .login-form-2 h3 {
+        text-align: center;
+        color: #fff;
+    }
+
+    .login-container form {
+        padding: 5% 10% 10% 10%;
+    }
+
+    .btnSubmit {
+        width: 50%;
+        border-radius: 1rem;
+        padding: 1.5%;
+        border: none;
+        cursor: pointer;
+    }
+
+    .login-form-1 .btnSubmit {
+        font-weight: 600;
+        color: #fff;
+        background-color: #0062cc;
+    }
+
+    .login-form-2 .btnSubmit {
+        font-weight: 600;
+        color: #0062cc;
+        background-color: #fff;
+    }
+
+    .login-form-2 .ForgetPwd {
+        color: #fff;
+        font-weight: 600;
+        text-decoration: none;
+    }
+
+    .login-form-1 .ForgetPwd {
+        color: #0062cc;
+        font-weight: 600;
+        text-decoration: none;
+    }
+
+    .premium-subscribed {
+        margin-bottom: 5%;
+    }
+</style>
+<div class="container login-container">
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8 login-form-1">
+            <h2 class="text-center">Author profile</h2>
+			<br>
+			<% if params['type'] == 'premium'  %>
+            <div class="row">
+                <div class="col-md-6 text-center">
+                    <img src="http://www.gstatic.com/tv/thumb/persons/319794/319794_v9_bb.jpg" alt="avatar">
+                </div>
+                <div class="col-md-6">
+					<h4>Gordon Ramsay</h4>
+					<p>
+						Gordon James Ramsay OBE is a British chef, restaurateur, writer, television personality and
+						food critic. He was born in Johnstone, Scotland, and raised in Stratford-upon-Avon, England.
+						His restaurants have been awarded 16 Michelin stars in total and currently hold a total of seven
+					</p>
+					<p>
+						Born: November 8, 1966 (age 53 years), Johnstone, United Kingdom
+					</p>
+					<p>
+						Education: North Oxfordshire Academy
+					</p>
+					<p>
+						TV shows: Hell's Kitchen, MasterChef, Kitchen Nightmares
+					</p>
+                </div>
+            </div>
+			<% else %>
+			<div class="row">
+                <div class="col-md-6 text-center">
+                    <img src="https://image.thanhnien.vn/660/uploaded/2014/pictures20134/phuongthanh/master5/master7.jpg" alt="avatar">
+                </div>
+                <div class="col-md-6">
+					<h4>Christine Hà</h4>
+					<p>
+						Christine Huyen Tran Hà is an American chef, writer and TV host. She is the first blind
+						contestant of MasterChef and the winner of its third season in 2012
+					</p>
+					<p>
+						Born: May 9, 1979 (age 40 years)
+					</p>
+					<p>
+						Books: Recipes from My Home Kitchen
+					</p>
+					<p>
+						Education: The University of Texas at Austin, University of Houston
+					</p>
+                </div>
+            </div>
+			<% end %>
+        </div>
+
+    </div>
+    <div class="col-md-2"></div>
+</div>
+</div>

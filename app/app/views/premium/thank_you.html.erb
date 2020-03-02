@@ -1,0 +1,12 @@
+<div class="premium-page container">
+  <div class="thank-you">
+    <p>
+      Thank you for ordering the premium service.
+    </p>
+    <p>
+      Your account is able to see all premium recipes until
+      <%= I18n.l(current_user.premium_purchases.active.first&.expries_at) %>. Thank you.
+    </p>
+    <a href="/">Back to home</a>
+  </div>
+</div>

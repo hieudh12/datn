@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Recipe</title>
+  <%= csrf_meta_tags %>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <!-- jQuery-2.2.4 js -->
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+  <%= yield :head %>
+</head>
+
+<body>
+  <!-- ##### Header Area Start ##### -->
+  <header class="header-area">
+    <!-- Navbar Area -->
+    <div class="bueno-main-menu" id="sticker">
+      <div class="classy-nav-container breakpoint-off">
+        <div class="container">
+          <!-- Menu -->
+          <nav class="classy-navbar justify-content-between" id="buenoNav">
+            <!-- Menu -->
+            <div class="classy-menu container-fluid">
+              <div class="row">
+                <div class="col-lg-2">
+                  <a class="logo" href="/admin">
+                    Admin page
+                  </a>
+                </div>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <%= yield %>
+  <!-- ##### Footer Area Start ##### -->
+  <!-- ##### All Javascript Script ##### -->
+  <!-- jQuery-2.2.4 js -->
+  <script src="/assets/jquery/jquery-2.2.4.min.js"></script>
+  <!-- Popper js -->
+  <script src="/assets/bootstrap/popper.min.js"></script>
+  <!-- Bootstrap js -->
+  <script src="/assets/bootstrap/bootstrap.min.js"></script>
+  <!-- All Plugins js -->
+  <script src="/assets/plugins/plugins.js"></script>
+  <!-- Active js -->
+  <script src="/assets/active.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,69 @@
+<!-- ##### Posts Area End ##### -->
+<div class="bueno-post-area mb-70">
+  <div class="container">
+    <div class="row justify-content-center">
+      
+      <!-- Post Area -->
+      <div class="col-12 col-lg-9 col-xl-10 mt-100 order-lg-2">
+        <% if not @recipe_hash[:category].nil? %>
+          <% recipes = @recipe_hash[:category] %>
+          <a href="<%= recipes_path params: {query: @search_query, type: :category} %>">
+            <h3 class="custom-h3 mb-30 text-left">
+              Category: <strong><%= @search_query %></strong>
+            </h3>
+          </a>
+          <%= render 'recipe_list', recipes: recipes %>
+          <%= paginate recipes, params: {type: :category} %>
+        <% end %>
+        <% if not @recipe_hash[:ingredient].nil? %>
+          <% recipes = @recipe_hash[:ingredient] %>
+          <a href="<%= recipes_path params: {query: @search_query, type: :ingredient} %>">
+            <h3 class="custom-h3 mb-30 text-left">
+              Ingredient: <strong><%= @search_query %></strong>
+            </h3>
+          </a>
+          <%= render 'recipe_list', recipes: recipes %>
+          <%= paginate recipes, params: {type: :ingredient} %>
+        <% end %>
+        <% if not @recipe_hash[:recipe].nil? %>
+          <% recipes = @recipe_hash[:recipe] %>
+          <a href="<%= recipes_path params: {query: @search_query, type: :recipe} %>">
+            <h3 class="custom-h3 mb-30 text-left">
+              Recipe: 
+              <% if @search_query.present? %>
+                <strong><%= @search_query %></strong>
+              <% end %>
+            </h3>
+          </a>
+          <%= render 'recipe_list', recipes: @recipe_hash[:recipe] %>
+          <%= paginate recipes, params: {type: :recipe} %>
+        <% end %>
+      </div>
+
+      <!-- Sidebar Area -->
+      <div class="col-12 col-sm-12 col-md-12 col-lg-3 col-xl-2 mt-100 order-lg-1">
+          <div class="sidebar-area">
+            <div class="single-widget-area add-widget mb-30">
+              <h3 class="custom-h3 text-left">Categories</h3>
+            </div>
+            <!-- Single Widget Area -->
+            <div class="single-widget-area post-widget">
+              <% Category.all.each do |category| %>
+                <!-- Single Post Area -->
+                <div class="single-post-area d-flex">
+                  <!-- Blog Content -->
+                  <div class="blog-content">
+                    <a href="<%= recipes_path params: {query: category.name, type: :category} %>" class="post-title">
+                      <%= category.name %>
+                    </a>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+  
+    </div>
+  </div>
+</div>
+<!-- ##### Posts Area End ##### -->

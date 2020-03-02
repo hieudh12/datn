@@ -1,0 +1,312 @@
+<!-- ##### Post Details Area Start ##### -->
+<section class="recipe-detail post-news-area section-padding-100-0 mb-70">
+  <div id="recipe-id" data-recipe_id="<%= @recipe.id %>"></div>
+  <div class="container">
+    <div class="row justify-content-center">
+      <!-- Post Details Content Area -->
+      <div class="col-12 col-lg-8 col-xl-7">
+        <div class="post-details-content mb-100">
+          <div class="blog-thumbnail mb-50 recipe-image full-width p-relative">
+            <img src="<%= @recipe.image.url %>" alt="">
+            <% if user_signed_in? %>
+              <i class="recipe-bookmark text-danger recipe-name <%= current_user.bookmarks.where(recipe_id: @recipe.id).first.nil? ? " far " : "fas " %> fa-heart fa-2x" data-recipe_id="<%= @recipe.id %>" style="cursor: pointer"></i>
+            <% end %>
+          </div>
+          <div class="blog-content">
+            <a href="#" class="post-tag"><%= @recipe.category.name %></a>
+            <h4 class="post-title"><%= @recipe.name %></h4>
+            By
+            <% if @recipe.is_premium? %>
+              <a href="/author?type=premium">
+                Gordon Ramsay
+              </a>
+            <% else %>
+              <a href="/author">
+                Christine Hà
+              </a>
+            <% end %>
+            <br><br>
+            <div class="post-meta mb-30">
+              <a href="#" class="post-date disabled"><%= I18n.l(@recipe.created_at) %></a>
+            </div>
+            <p>
+              <%= @recipe.recipe %>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-lg-4 col-xl-4">
+
+        <!-- Info -->
+        <div class="recipe-info">
+          <h5>Info</h5>
+          <ul class="info-data">
+            <li><i class="recipe-name far fa-heart fa-2x"></i><span> <%= @recipe.bookmarks.count %></span></li>
+            <li><img src="/assets/core-img/alarm-clock.png" alt=""> <span><%= @recipe.time_to_cook %> h</span></li>
+            <li><img src="/assets/core-img/sandwich.png" alt=""> <span><%= @recipe.energy %> cal</span></li>
+          </ul>
+        </div>
+
+        <!-- Ingredients -->
+        <div class="ingredients">
+          <h5>Ingredients</h5>
+
+          <!-- Custom Checkbox -->
+          <% @recipe.ingredients.each_with_index do |ingredient, idx| %>
+          <div class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="<%= 'customCheck' + idx.to_s %>">
+            <label class="custom-control-label"
+              for="<%= 'customCheck' + idx.to_s %>"><%= ingredient.name + ': ' + ingredient.amount&.to_s + ingredient.unit %></label>
+          </div>
+          <%end %>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-12">
+        <% if user_signed_in? %>
+        <h4>Rate this recipe</h4>
+        <div id="rate-score" data-rate="<%= current_user.ratings.where(recipe_id: @recipe.id).first&.rate %>"></div>
+        <div class="rate">
+          <input class="star-rating" type="radio" id="star5" name="rate" value="5" />
+          <label for="star5" title="text">5 stars</label>
+          <input class="star-rating" type="radio" id="star4" name="rate" value="4" />
+          <label for="star4" title="text">4 stars</label>
+          <input class="star-rating" type="radio" id="star3" name="rate" value="3" />
+          <label for="star3" title="text">3 stars</label>
+          <input class="star-rating" type="radio" id="star2" name="rate" value="2" />
+          <label for="star2" title="text">2 stars</label>
+          <input class="star-rating" type="radio" id="star1" name="rate" value="1" />
+          <label for="star1" title="text">1 star</label>
+        </div>
+        <% end %>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+			<div class="col-sm-3">
+				<div class="rating-block">
+					<h4>Average user rating</h4>
+					<h2 class="bold padding-bottom-7"><%= @recipe.get_average_rating ? @recipe.get_average_rating : "0.0" %> <small>/ 5 </small><i class="fas fa-star"></i></h2>
+				</div>
+			</div>
+			<div class="col-sm-3">
+				<h4>Rating breakdown</h4>
+        <%
+          max_rating_count = 0
+          for i in 1..5
+            max_rating_count = @recipe.ratings.where(rate: i).count if @recipe.ratings.where(rate: i).count > max_rating_count
+          end
+        %>
+				<div class="pull-left">
+					<div class="pull-left" style="width:35px; line-height:1;">
+						<div style="height:9px; margin:5px 0;">5 <i class="fas fa-star"></i></div>
+					</div>
+					<div class="pull-left" style="width:180px;">
+						<div class="progress" style="height:9px; margin:8px 0;">
+						  <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="5" aria-valuemin="0" aria-valuemax="5"
+                style="width: <%= max_rating_count!=0 ? @recipe.ratings.where(rate: 5).count*100/max_rating_count : "0" %>%">
+							<span class="sr-only">80% Complete (danger)</span>
+						  </div>
+						</div>
+					</div>
+					<div class="pull-right" style="margin-left:10px;"><%= @recipe.ratings.where(rate: 5).count %></div>
+				</div>
+				<div class="pull-left">
+					<div class="pull-left" style="width:35px; line-height:1;">
+						<div style="height:9px; margin:5px 0;">4 <i class="fas fa-star"></i></div>
+					</div>
+					<div class="pull-left" style="width:180px;">
+						<div class="progress" style="height:9px; margin:8px 0;">
+						  <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="4" aria-valuemin="0" aria-valuemax="5"
+                style="width: <%= max_rating_count!=0 ? @recipe.ratings.where(rate: 4).count*100/max_rating_count : "0" %>%">
+							<span class="sr-only">80% Complete (danger)</span>
+						  </div>
+						</div>
+					</div>
+					<div class="pull-right" style="margin-left:10px;"><%= @recipe.ratings.where(rate: 4).count %></div>
+				</div>
+				<div class="pull-left">
+					<div class="pull-left" style="width:35px; line-height:1;">
+						<div style="height:9px; margin:5px 0;">3 <i class="fas fa-star"></i></div>
+					</div>
+					<div class="pull-left" style="width:180px;">
+						<div class="progress" style="height:9px; margin:8px 0;">
+						  <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="3" aria-valuemin="0" aria-valuemax="5"
+                style="width: <%= max_rating_count!=0 ? @recipe.ratings.where(rate: 3).count*100/max_rating_count : "0" %>%">
+							<span class="sr-only">80% Complete (danger)</span>
+						  </div>
+						</div>
+					</div>
+					<div class="pull-right" style="margin-left:10px;"><%= @recipe.ratings.where(rate: 3).count %></div>
+				</div>
+				<div class="pull-left">
+					<div class="pull-left" style="width:35px; line-height:1;">
+						<div style="height:9px; margin:5px 0;">2 <i class="fas fa-star"></i></div>
+					</div>
+					<div class="pull-left" style="width:180px;">
+						<div class="progress" style="height:9px; margin:8px 0;">
+						  <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="2" aria-valuemin="0" aria-valuemax="5"
+                style="width: <%= max_rating_count!=0 ? @recipe.ratings.where(rate: 2).count*100/max_rating_count : "0" %>%">
+							<span class="sr-only">80% Complete (danger)</span>
+						  </div>
+						</div>
+					</div>
+					<div class="pull-right" style="margin-left:10px;"><%= @recipe.ratings.where(rate: 2).count %></div>
+				</div>
+				<div class="pull-left">
+					<div class="pull-left" style="width:35px; line-height:1;">
+						<div style="height:9px; margin:5px 0;">1 <i class="fas fa-star"></i></div>
+					</div>
+					<div class="pull-left" style="width:180px;">
+						<div class="progress" style="height:9px; margin:8px 0;">
+						  <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="1" aria-valuemin="0" aria-valuemax="5"
+                style="width: <%= max_rating_count!=0 ? @recipe.ratings.where(rate: 1).count*100/max_rating_count : "0" %>%">
+							<span class="sr-only">80% Complete (danger)</span>
+						  </div>
+						</div>
+					</div>
+					<div class="pull-right" style="margin-left:10px;"><%= @recipe.ratings.where(rate: 1).count %></div>
+				</div>
+			</div>
+		</div>
+    <br>
+
+    <div class="comment_area clearfix mb-100">
+      <h4 class="mb-50">Comments</h4>
+      <%= render 'comments/form' %>
+      <ol>
+        <% @comments.each do |comment| %>
+        <% replyCmtForm= "replyCmtForm"+ comment.id.to_s %>
+        <% formCmtShow= "$('#" + replyCmtForm+ "').show()" %>
+        <!-- Single Comment Area -->
+        <li class="single_comment_area">
+          <!-- Comment Content -->
+          <div class="comment-content d-flex">
+            <!-- Comment Author -->
+            <div class="comment-author">
+              <img src="<%= comment.user.avatar %>" alt="author">
+            </div>
+            <!-- Comment Meta -->
+            <div class="comment-meta">
+              <div class="d-flex">
+                <a href="#" class="post-author"><%= comment.user.username %></a>
+                <a href="#" class="post-date"><%= I18n.l(comment.created_at) %></a>
+                <% if user_signed_in? %>
+                <% if comment.user_id == current_user.id %>
+                <a href="#" class="post-date" onclick=<%= formCmtShow%>>Reply</a>
+                <a href="#" class="post-date" onclick="$('#comment<%= comment.id%>').show()">Edit</a>
+                <a
+                  href="#"><%= link_to 'Delete', comment_path(comment), method: :delete, data: { confirm: 'Are you sure?' }, class: "reply" %></a>
+                <% else %>
+                <a href="#" class="reply" onclick=<%= formCmtShow%>>Reply</a>
+                <% end %>
+                <% end %>
+              </div>
+              <p><%= comment.content %></p>
+              <div id="comment<%= comment.id%>" style="display:none;" class="form-group">
+                <%= form_for(@comment, :url => url_for(:controller => 'comments', :action => 'update'), method: "put") do |f| %>
+                <%= f.hidden_field :id, value: comment.id%>
+                <input type="text" name="comment[content]" class="form-control" value=<%= comment.content%>>
+                <div class="row">
+                  <div class="col-6">
+                    <button class="btn mt-30 pull-right" type="submit" style="background-color:#b0c364;color:#fff;">Update
+                      Comment</button>
+                  </div>
+                  <div class="col-6">
+                    <button class="btn btn-default mt-30" type="button" onclick="$('#comment<%= comment.id%>').hide()">Cancel</button>
+                  </div>
+                </div>
+                <% end %>
+              </div>
+              <div id=<%= replyCmtForm%> style="display: none;" class="form-group">
+                <%= form_for(@comment.replies.build, :url => url_for(:controller => 'comments', :action => 'create_reply'), method: "post") do |f| %>
+                <%= f.hidden_field :comment_id, value: comment.id%>
+                <% if user_signed_in? %>
+                <%= f.hidden_field :user_id , value: current_user.id %>
+                <% end %>
+                <div class="col-12">
+                  <%= f.text_area :content, class: "form-control rounded-0", cols: "30", rows: "5", placeholder: "Your comment..." %>
+                </div>
+                <div class="col-12">
+                  <button class="btn bueno-btn mt-30" type="submit">Submit Reply</button>
+                </div>
+                <% end %>
+              </div>
+            </div>
+          </div>
+          <% comment.replies.order('created_at ASC').each do |reply| %>
+
+          <% replyForm= "replyForm"+ reply.id.to_s %>
+          <% formShow= "$('#" + replyForm+ "').show()" %>
+          <ol class="children">
+            <li class="single_comment_area">
+              <!-- Comment Content -->
+              <div class="comment-content d-flex">
+                <!-- Comment Author -->
+                <div class="comment-author">
+                  <img src="<%= reply.user.avatar %>" alt="author">
+                </div>
+                <!-- Comment Meta -->
+                <div class="comment-meta">
+                  <div class="d-flex">
+                    <a href="#" class="post-author"><%= reply.user.username%></a>
+                    <a href="#" class="post-date"><%= reply.created_at.strftime("%d %b, %Y %H:%M")%></a>
+                    <% if user_signed_in? %>
+                    <% if reply.user_id == current_user.id %>
+                    <a href="#" class="post-date" onclick=<%= formShow%>>Reply</a>
+                    <a href="#" class="post-date" onclick="$('#reply<%= reply.id%>').show()">Edit</a>
+
+                    <a
+                      href="#"><%= link_to 'Delete', destroy_reply_path(reply), method: :delete, data: { confirm: 'Are you sure?' }, class: "reply" %></a>
+                    <% else %>
+                    <a href="#" class="reply" onclick=<%=formShow%>>Reply</a>
+                    <% end %>
+                    <% end %>
+                  </div>
+                  <p><%= reply.content%></p>
+                  <div id="reply<%= reply.id%>" style="display:none;" class="form-group">
+                    <%= form_for(@comment.replies.build, :url => url_for(:controller => 'comments', :action => 'update_reply'), method: "put") do |f| %>
+                    <%= f.hidden_field :id, value: reply.id%>
+                    <input type="text" name="reply[content]" class="form-control" value=<%= reply.content%>>
+                    <div class="row">
+                      <div class="col-6">
+                        <button class="btn mt-30 pull-right" type="submit" style="background-color:#b0c364;color:#fff;">Update
+                          Comment</button>
+                      </div>
+                      <div class="col-6">
+                        <button class="btn btn-default mt-30" type="button" onclick="$('#reply<%= reply.id%>').hide()">Cancel</button>
+                      </div>
+                    </div>
+                    <% end %>
+                  </div>
+                  <div id=<%= replyForm%> style="display: none;">
+                    <%= form_for(@comment.replies.build, :url => url_for(:controller => 'comments', :action => 'create_reply'), method: "post") do |f| %>
+                    <%= f.hidden_field :comment_id, value: comment.id%>
+                    <% if user_signed_in? %>
+                    <%= f.hidden_field :user_id , value: current_user.id %>
+                    <% end %>
+                    <div class="col-12">
+                      <%= f.text_area :content, class: "form-control rounded-0", cols: "30", rows: "5", placeholder: "Your comment..." %>
+                    </div>
+                    <div class="col-12">
+                      <button class="btn bueno-btn mt-30" type="submit">Submit Reply</button>
+                    </div>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+            </li>
+          </ol>
+          <% end %>
+        </li>
+        <% end %>
+      </ol>
+    </div>
+
+  </div>
+  </div>
+</section>
+<!-- ##### Post Details Area End ##### -->

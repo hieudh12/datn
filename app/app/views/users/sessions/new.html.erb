@@ -1,0 +1,129 @@
+<% content_for :head do %>
+<style>
+.login-container{
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+.login-form-1{
+    padding: 5%;
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
+}
+.login-form-1 h3{
+    text-align: center;
+    color: #333;
+}
+.login-form-2{
+    padding: 5%;
+    background: #0062cc;
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
+}
+.login-form-2 h3{
+    text-align: center;
+    color: #fff;
+}
+.login-container form{
+    padding: 10%;
+}
+.btnSubmit
+{
+    width: 50%;
+    border-radius: 1rem;
+    padding: 1.5%;
+    border: none;
+    cursor: pointer;
+}
+.login-form-1 .btnSubmit{
+    font-weight: 600;
+    color: #fff;
+    background-color: #0062cc;
+}
+.login-form-2 .btnSubmit{
+    font-weight: 600;
+    color: #0062cc;
+    background-color: #fff;
+}
+.login-form-2 .ForgetPwd{
+    color: #fff;
+    font-weight: 600;
+    text-decoration: none;
+}
+.login-form-1 .ForgetPwd{
+    color: #0062cc;
+    font-weight: 600;
+    text-decoration: none;
+}
+</style>
+<% end %>
+
+<div class="container login-container">
+  <div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6 login-form-1">
+      <h2 class="text-center">Log in</h2>
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+        <% if flash[:alert] %>
+        <div class="alert alert-danger" role="alert">
+          <%= flash[:alert] %>
+        </div>
+        <% end %>
+        <div class="form-group">
+          <input type="email" autocomplete="email" class="form-control" name="user[email]" id="user_email" placeholder="Your Email *" value="" />
+        </div>
+        <div class="form-group">
+          <input type="password" autocomplete="current-password" name="user[password]" id="user_password" class="form-control" placeholder="Your Password *" value="" />
+        </div>
+        <div class="form-group">
+          <% if devise_mapping.rememberable? %>
+            <div class="field">
+              <%= f.check_box :remember_me %>
+              <%= f.label :remember_me %>
+            </div>
+          <% end %>
+        </div>
+        <div class="form-group">
+          <input type="submit" name="commit" data-disable-with="Login" class="btnSubmit" value="Login" />
+        </div>
+        <div class="form-group">
+            <%= render "users/shared/links" %>
+        </div>
+      <% end %>
+    </div>
+    <div class="col-md-3"></div>
+  </div>
+</div>
+
+<div id="pwdModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <%# <button type="button" class="close pull-right" data-dismiss="modal" aria-hidden="true">×</button> %>
+        <h1 class="text-center">Forgot password?</h1>
+      </div>
+      <div class="modal-body">
+        <div class="col-md-12">
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <div class="text-center">
+                <p>If you have forgotten your password you can reset it here.</p>
+                <div class="panel-body">
+                  <%= form_tag password_forgot_url, :method => :post do %>
+                    <div class="form-group">
+                      <input class="form-control input-lg" placeholder="E-mail Address" name="email" type="email">
+                    </div>
+                    <input class="btn btn-lg btn-primary btn-block" value="Reset My Password" type="submit">
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <div class="col-md-12">
+          <button class="btn pull-right" data-dismiss="modal" aria-hidden="true">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

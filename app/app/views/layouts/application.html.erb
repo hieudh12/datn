@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Recipe</title>
+  <%= csrf_meta_tags %>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <!-- jQuery-2.2.4 js -->
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <link rel="stylesheet" type="text/css"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+  <%= yield :head %>
+</head>
+
+<body>
+  <!-- Preloader -->
+  <div class="preloader d-flex align-items-center justify-content-center">
+    <div class="preloader-content">
+      <h3>Cooking in progress..</h3>
+      <div id="cooking">
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div id="area">
+          <div id="sides">
+            <div id="pan"></div>
+            <div id="handle"></div>
+          </div>
+          <div id="pancake">
+            <div id="pastry"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- ##### Header Area Start ##### -->
+  <header class="header-area">
+    <!-- Navbar Area -->
+    <div class="bueno-main-menu" id="sticker">
+      <div class="classy-nav-container breakpoint-off">
+        <div class="container">
+          <!-- Menu -->
+          <nav class="classy-navbar justify-content-between" id="buenoNav">
+
+            <!-- Toggler -->
+            <!-- <div id="toggler"><img src="/assets/core-img/toggler.png" alt=""></div> -->
+
+            <!-- Navbar Toggler -->
+            <div class="classy-navbar-toggler">
+              <span class="navbarToggler"><span></span><span></span><span></span></span>
+            </div>
+
+            <!-- Menu -->
+            <div class="classy-menu container-fluid">
+              <div class="row">
+                <div class="col-lg-2">
+                  <a class="logo" href="/">
+                    <img class="img-fluid" src="/assets/core-img/logo.png" alt="">
+                  </a>
+                  <!-- Close Button -->
+                  <div class="classycloseIcon">
+                    <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+                  </div>
+                </div>
+
+                <div class="col-lg-7 search-form d-flex align-items-center">
+                  <form class="form full-width" action="/recipes" method="get">
+                    <div class="input-group">
+                      <input class="form-control" type="search" id="topSearch"
+                        placeholder="Search for recipe, category, ingredient, ..." name="query">
+                    </div>
+                  </form>
+                </div>
+
+                <div class="classynav col-lg-1">
+                  <% if user_signed_in? %>
+                  <a href='/profile/bookmarked-recipes' data-toggle="tooltip" title='Bookmarked recipes list'
+                    style='margin-left: 100px; z-index: 100; color: red'>
+                    <span style="position: relative">
+                      <i style="display:inline" class='fas fa-heart fa-2x'></i>
+                      <span
+                        style="position: absolute; right: -20px; top: -12px">(<%= current_user.bookmarks.count %>)</span>
+                    </span>
+                  </a>
+                  <% end %>
+                </div>
+
+                <!-- Nav Start -->
+                <div class="classynav col-lg-2">
+                  <!-- <ul>
+                    <li><%= link_to("Home", home_url) %></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Categories</a>
+                      <ul class="dropdown">
+                        <% Category.all.each do |category| %>
+                        <li><%= link_to(category.name, "#")  %></li>
+                        <% end %>
+                      </ul>
+                    </li>
+                    <li><a href="/recipes">Recipes</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                  </ul> -->
+
+                  <!-- Login/Register -->
+                  <div class="login-area">
+                    <% if user_signed_in? %>
+
+                    <div class="dropdown show">
+                      <a class="btn dropdown-toggle" href="https://example.com" id="dropdownMenuLink"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <img style="max-width: 40px; margin-right: 15px" src="<%= current_user.avatar %>"><%= current_user.username %></a> <div
+                          class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                        <%= link_to("Profile","/profile", class: "dropdown-item") %>
+                        <%= link_to('Logout', destroy_user_session_path, method: :delete, class: "dropdown-item") %>
+                    </div>
+                  </div>
+                  <% else %>
+                  <%= link_to("Login / Register","/users/sign_in") %>
+                  <% end %>
+                </div>
+              </div>
+              <!-- Nav End -->
+            </div>
+        </div>
+        </nav>
+      </div>
+    </div>
+    </div>
+  </header>
+
+  <%= yield %>
+  <!-- ##### Footer Area Start ##### -->
+  <footer class="footer-area">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-sm-5">
+          <!-- Copywrite Text -->
+          <p class="copywrite-text">
+            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            Copyright &copy;
+            <script>
+              document.write(new Date().getFullYear());
+
+            </script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i>
+            by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+          </p>
+        </div>
+        <div class="col-12 col-sm-7">
+          <!-- Footer Nav -->
+          <div class="footer-nav">
+            <ul>
+              <li class="active"><a href="#">Home</a></li>
+              <li><a href="#">Recipes</a></li>
+              <li><a href="#">About Us</a></li>
+              <li><a href="#">Blog</a></li>
+              <li><a href="#">Contact</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- ##### Footer Area Start ##### -->
+  <!-- ##### All Javascript Script ##### -->
+  <!-- jQuery-2.2.4 js -->
+  <script src="/assets/jquery/jquery-2.2.4.min.js"></script>
+  <!-- Popper js -->
+  <script src="/assets/bootstrap/popper.min.js"></script>
+  <!-- Bootstrap js -->
+  <script src="/assets/bootstrap/bootstrap.min.js"></script>
+  <!-- All Plugins js -->
+  <script src="/assets/plugins/plugins.js"></script>
+  <!-- Active js -->
+  <script src="/assets/active.js"></script>
+
+  <script>
+    $(function () {
+      $('[data-toggle="tooltip"]').tooltip();
+    });
+  </script>
+</body>
+
+</html>
