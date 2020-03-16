@@ -37,7 +37,7 @@ img {
 .classy-nav-container {
   position: relative;
   z-index: 100;
-  background-color: #ffffff;
+  background-color: #ddd;
   /* sticky */ }
   .classy-nav-container * {
     box-sizing: border-box; }

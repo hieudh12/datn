@@ -2,35 +2,35 @@ class CommentsController < ApplicationController
     before_action :authenticate_user!
     def index
     end
-    
+
     def show
     end
-    
+
     def new
         @comment = Comment.new
     end
-    
+
     def create
         @comment= Comment.new(comment_params)
         @comment.save
         redirect_to recipe_path(@comment.recipe_id)
     end
-    
+
     def edit
     end
-    
+
     def update
         @comment = Comment.find_by params.require(:comment).permit(:id)
         @comment.update(params.require(:comment).permit(:content))
         redirect_to recipe_path(@comment.recipe_id)
     end
-    
+
     def destroy
         @comment = Comment.find(params[:id])
         @comment.destroy
         redirect_to recipe_path(@comment.recipe_id)
     end
-    
+
     def create_reply
         @reply= Reply.new(reply_params)
         @reply.save
