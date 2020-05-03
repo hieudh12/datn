@@ -2,7 +2,7 @@
 <div class="bueno-post-area mb-70">
   <div class="container">
     <div class="row justify-content-center">
-      
+
       <!-- Post Area -->
       <div class="col-12 col-lg-9 col-xl-10 mt-100 order-lg-2">
         <% if not @recipe_hash[:category].nil? %>
@@ -29,7 +29,7 @@
           <% recipes = @recipe_hash[:recipe] %>
           <a href="<%= recipes_path params: {query: @search_query, type: :recipe} %>">
             <h3 class="custom-h3 mb-30 text-left">
-              Recipe: 
+              Recipe:
               <% if @search_query.present? %>
                 <strong><%= @search_query %></strong>
               <% end %>
@@ -62,7 +62,7 @@
             </div>
           </div>
         </div>
-  
+
     </div>
   </div>
 </div>

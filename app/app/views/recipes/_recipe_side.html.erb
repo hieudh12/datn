@@ -1,0 +1,31 @@
+<% recipes.each do |recipe| %>
+    <li class="penci-feed">
+      <span class="order-border-number right-side">
+        <span class="number-post">1</span>
+      </span>
+      <div class="side-item">
+        <div class="side-image thumbnail-right recipe-image p-relative" style="height:auto;">
+          <a href="<%= recipe.is_premium? && !current_user&.is_premium? ? premium_info_path : recipe_path(recipe) %>" class="recipe-name"></a>
+            <div class="small-fix-size">
+              <img src="<%= recipe.image %>" alt="">
+              <% if recipe.is_premium? %>
+                <div class="premium-label">
+                  <p>Premium</p>
+                </div>
+              <% end %>
+            </div>
+        </div>
+        <div class="side-item-text">
+          <h4 class="side-title-post">
+            <a href="<%= recipe.is_premium? && !current_user&.is_premium? ? premium_info_path : recipe_path(recipe) %>" class="recipe-name mt-0"><%= recipe.name %></a>
+              </h4>
+              <p class="mb-0 rating-avg">
+                <span><%= recipe.get_average_rating ? recipe.get_average_rating : "0.0" %></span>
+                <i class="fas fa-star"></i>
+                <span>(<%= recipe.get_rate_times ? recipe.get_rate_times : "0" %> rating)</span>
+              </p>
+              <span class="side-item-meta"><%= recipe.created_at.strftime("%b %d, %Y") %></span>
+        </div>
+      </div>
+    </li>
+<%end %>

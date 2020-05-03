@@ -47,7 +47,7 @@
 
         welcomeSlide.owlCarousel({
             items: 3,
-            margin: 30,
+            margin: 15,
             loop: true,
             nav: true,
             navText: ['Prev', 'Next'],
