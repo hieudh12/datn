@@ -1,9 +1,11 @@
 class HomepageController < ApplicationController
   def index
     page = params[:page] ? params[:page] : 1
-    # @recipes = Recipe.offset(Recipe.count - 6).limit(6) # Random 6 recommended recipe
+    
     @recipes = Recipe.order('created_at DESC').limit(10)
     @recipes_side = Recipe.left_joins(:ratings).group(:id).order('SUM(rate)/COUNT(ratings.user_id) DESC').limit(4)
+    @recipes_rcm = Recipe.left_joins(:bookmarks).group(:id).order('COUNT(bookmarks.user_id) DESC').limit(4)
+
     render "homepage/home"
   end
 

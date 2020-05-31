@@ -1,0 +1,37 @@
+<% recipes.each do |recipe| %>
+  <style>
+      .pre-label {
+          z-index: 10;
+          position: absolute;
+          bottom: 1%;
+          left: 5%;
+          color: gold;
+      }
+      .pre-label p {
+          font-weight: bold;
+      }
+  </style>
+  <div class="mag-photo">
+    <div class="magcat-thumb">
+          <a href="<%= recipe.is_premium? && !current_user&.is_premium? ? premium_info_path : recipe_path(recipe) %>" class="mag-overlay-photo">
+          <a class="penci-image-holder" style="background-image: url(<%= recipe.image %>)" href="<%= recipe.is_premium? && !current_user&.is_premium? ? premium_info_path : recipe_path(recipe) %>">
+      </a>
+          <div class="magcat-detail">
+        <h3 class="magcat-titlte"><a href="<%= recipe.is_premium? && !current_user&.is_premium? ? premium_info_path : recipe_path(recipe) %>"><%= recipe.name %></a></h3>
+              <div class="grid-post-box-meta mag-meta">
+                  <span><%= recipe.created_at.strftime("%b %d, %Y") %></span>
+              </div>
+              <% if user_signed_in? %>
+                  <div class="col-md-3">
+                      <i class="recipe-bookmark text-danger recipe-name <%= current_user.bookmarks.where(recipe_id: recipe.id).first.nil? ? " far " : "fas " %> fa-heart fa-2x" data-recipe_id="<%= recipe.id %>" style="cursor: pointer"></i>
+                  </div>
+              <% end %>
+              <% if recipe.is_premium? %>
+                  <div class="pre-label">
+                      <p>Premium</p>
+                  </div>
+              <% end %>
+          </div>
+    </div>
+  </div>
+<%end %>

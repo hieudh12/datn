@@ -12,7 +12,7 @@
               Category: <strong><%= @search_query %></strong>
             </h3>
           </a>
-          <%= render 'recipe_list', recipes: recipes %>
+          <%= render 'recipe_list_se', recipes: recipes %>
           <%= paginate recipes, params: {type: :category} %>
         <% end %>
         <% if not @recipe_hash[:ingredient].nil? %>
@@ -22,7 +22,7 @@
               Ingredient: <strong><%= @search_query %></strong>
             </h3>
           </a>
-          <%= render 'recipe_list', recipes: recipes %>
+          <%= render 'recipe_list_se', recipes: recipes %>
           <%= paginate recipes, params: {type: :ingredient} %>
         <% end %>
         <% if not @recipe_hash[:recipe].nil? %>
@@ -35,7 +35,7 @@
               <% end %>
             </h3>
           </a>
-          <%= render 'recipe_list', recipes: @recipe_hash[:recipe] %>
+          <%= render 'recipe_list_se', recipes: @recipe_hash[:recipe] %>
           <%= paginate recipes, params: {type: :recipe} %>
         <% end %>
       </div>

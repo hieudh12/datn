@@ -1,5 +1,65 @@
-<div class="row">
-  <% recipes.each do |recipe| %>
-    <%= render 'recipes/recipe_item', recipe: recipe %>
-  <%end %>
-</div>
+<% recipes.each do |recipe| %>
+  <style>
+    .premium-label {
+      position: absolute;
+      top: 3%;
+      left: 5%;
+    }
+    .premium-label p {
+      font-weight: bold;
+      color: yellow;
+    }
+    .book-label {
+      position: absolute;
+      top: 1%;
+      right: 5%;
+    }
+  </style>
+          
+      <li class="grid-style grid-2-style">
+        <article class="item">
+          <div class="thumbnail" style="position: relative">
+            <a class="penci-image-holder" style="background-image: url(<%= recipe.image %>);" href="<%= recipe.is_premium? && !current_user&.is_premium? ? premium_info_path : recipe_path(recipe) %>">
+            </a>
+            <% if recipe.is_premium? %>
+              <div class="premium-label">
+                <p>Premium</p>
+              </div>
+            <% end %>
+            <% if user_signed_in? %>
+              <div class="book-label">
+                <i class="recipe-bookmark text-danger recipe-name <%= current_user.bookmarks.where(recipe_id: recipe.id).first.nil? ? " far " : "fas " %> fa-heart fa-2x" data-recipe_id="<%= recipe.id %>" style="cursor: copy" title="Add to Bookmark!"></i>
+              </div>
+            <% end %>
+          </div>
+          <div class="grid-header-box">
+            <span class="cat"><a class="penci-cat-name" href="#"><%= recipe.category.name %></a></span>	
+            <h2 class="grid-title"><a href="<%= recipe.is_premium? && !current_user&.is_premium? ? premium_info_path : recipe_path(recipe) %>"><%= recipe.name %></a></h2>
+            <div class="grid-post-box-meta">
+                            <span class="mb-0 rating-avg">
+                  <span><%= recipe.get_average_rating ? recipe.get_average_rating : "0.0" %></span>
+                  <i class="fas fa-star"></i>
+                  <span>(<%= recipe.get_rate_times ? recipe.get_rate_times : "0" %> rating)</span>
+                </span>
+              <span><%= recipe.created_at.strftime("%b %d, %Y") %></span>
+            </div>
+          </div>
+          <div class="item-content">
+            <p style="overflow: hidden;text-overflow: ellipsis;height:80px;" href="<%= recipe.is_premium? && !current_user&.is_premium? ? premium_info_path : recipe_path(recipe) %>"><%= recipe.recipe %></p>
+          </div>
+          <div class="penci-readmore-btn">
+            <a class="penci-btn-readmore" href="<%= recipe.is_premium? && !current_user&.is_premium? ? premium_info_path : recipe_path(recipe) %>">Xem Tiếp<i class="fas fa-angle-double-right"></i></a>
+          </div>
+    <div class="penci-post-box-meta penci-post-box-grid">
+      <div class="penci-post-share-box">
+            <a target="_blank" href="#"><i class="fab fa-facebook-f"></i><span class="dt-share">Facebook</span></a>
+            <a target="_blank" href="#"><i class="fab fa-twitter"></i><span class="dt-share">Twitter</span></a>
+            <a target="_blank" href="#"><i class="fab fa-google-plus-g"></i><span class="dt-share">Google +</span></a>
+            <a data-pin-do="none" target="_blank" href="#"><i class="fab fa-pinterest-p"></i><span class="dt-share">Pinterest</span></a>
+      </div>
+    </div>
+        </article>
+      </li>
+
+
+<%end %>

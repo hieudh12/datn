@@ -30,11 +30,11 @@ class RecipesController < ApplicationController
 
 private
   def recipes_by_categories(categories)
-    Recipe.where(category_id: categories.pluck(:id)).order(is_premium: :desc, created_at: :desc).page(page).per(4)
+    Recipe.where(category_id: categories.pluck(:id)).order('created_at DESC').page(page).per(4)
   end
 
   def recipes_by_ingredients(ingredients)
-    Recipe.joins(:ingredients).where(ingredients: {id: ingredients.pluck(:id)}).order(is_premium: :desc, created_at: :desc).page(page).per(4)
+    Recipe.joins(:ingredients).where(ingredients: {id: ingredients.pluck(:id)}).order('created_at DESC').page(page).per(4)
   end
 
   def category_search

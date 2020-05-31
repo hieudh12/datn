@@ -1,0 +1,20 @@
+<% recipes.each do |recipe| %>
+  <div class="penci-mega-post">
+    <div class="penci-mega-thumbnail">
+      <span class="mega-cat-name">
+        <a href="#"><%= recipe.category.name %></a>
+      </span>
+      <a class="penci-image-holder" style="background-image: url(<%= recipe.image %>);" 
+        href="<%= recipe.is_premium? && !current_user&.is_premium? ? premium_info_path : recipe_path(recipe) %>">
+      </a>
+    </div>
+    <div class="penci-mega-meta">
+      <h3 class="post-mega-title">
+        <a href="<%= recipe.is_premium? && !current_user&.is_premium? ? premium_info_path : recipe_path(recipe) %>">
+          <%= recipe.name %>
+        </a>
+      </h3>
+      <p class="penci-mega-date"><%= recipe.created_at.strftime("%b %d, %Y") %></p>
+    </div>
+  </div>
+<% end %>

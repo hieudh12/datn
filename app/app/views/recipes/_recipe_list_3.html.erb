@@ -1,0 +1,18 @@
+<% recipes.each do |recipe| %>
+  <div class="mag-post-box">
+    <div class="magcat-thumb">
+      <a class="penci-image-holder small-fix-size" style="background-image: url(<%= recipe.image %>)" href="<%= recipe.is_premium? && !current_user&.is_premium? ? premium_info_path : recipe_path(recipe) %>"></a>
+    </div>
+    <div class="magcat-detail">
+      <h3 class="magcat-titlte"><a href="<%= recipe.is_premium? && !current_user&.is_premium? ? premium_info_path : recipe_path(recipe) %>"><%= recipe.name %></a></h3>
+      <div class="grid-post-box-meta mag-meta">
+        <% if recipe.is_premium? %>
+          <div>
+            <p style="color:yellow; font-weight:bold">Premium</p>
+          </div>
+        <% end %>
+        <span><%= recipe.created_at.strftime("%b %d, %Y") %></span>
+      </div>
+    </div>
+  </div>
+<%end %>

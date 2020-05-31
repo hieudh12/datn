@@ -27,6 +27,7 @@ end
 class ApplicationController < ActionController::Base
   rescue_from Exception, :with => :render_404
 
+  before_action :set_variables
   before_action :configure_permitted_parameters, if: :devise_controller?
   include StoreLocationBackport
   before_action :store_user_location!, if: :storable_location?
@@ -64,5 +65,12 @@ private
   def store_user_location
     # :user is the scope we are authenticating
     store_location_for(:user, request.fullpath)
+  end
+
+  def set_variables
+    @category_1 = Category.where(name: "Heathy food").take
+    @recipes_1 = @category_1.recipes.order('created_at DESC').limit(4)
+    @category_rv = Category.where(name: "Meaty food").take
+    @recipes_rv = @category_rv.recipes.order('created_at DESC').limit(5)
   end
 end

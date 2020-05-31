@@ -58,8 +58,8 @@ Rails.application.routes.draw do
 
 
   get 'admins/index'
-  get 'single', action: :single, controller: 'homepage'
-  get 'category-post', action: :category_post, controller: 'homepage'
+  # get 'single', action: :single, controller: 'homepage'
+  # get 'category-post', action: :category_post, controller: 'homepage'
   # get 'category', action: :category, controller: 'homepage'
   get 'contact', action: :contact, controller: 'homepage'
   get 'recipe', action: :recipe, controller: 'homepage'

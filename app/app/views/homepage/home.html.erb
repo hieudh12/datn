@@ -24,152 +24,56 @@
 <!-- ##### Hero Area End ##### -->
 
 <!-- ##### Catagory Area Start ##### -->
-	<div class="container penci_sidebar right-sidebar" style="transform: none;">
+	<div class="container container-single penci_sidebar right-sidebar penci-enable-lightbox" style="transform: none;">
 		<div id="main" class="penci-layout-grid-2 penci-main-sticky-sidebar" style="position: relative; overflow: visible; box-sizing: border-box; min-height: 1px;">
 			<div class="theiaStickySidebar" style="padding-top: 0px; padding-bottom: 1px; position: static;">
-        <div class="penci-border-arrow penci-homepage-title penci-home-latest-posts style-2 pcalign-left">
+        		<div class="penci-border-arrow penci-homepage-title penci-home-latest-posts style-2 pcalign-left">
 					<h3 class="inner-arrow">Bài đăng mới nhất</h3>
 				</div>
 				<div class="penci-wrapper-posts-content">
-          <%= render 'recipes/recipe_list', recipes: @recipes %>
-        </div>
+        
+	<ul class="penci-wrapper-data penci-grid">	
+          			<%= render 'recipes/recipe_list', recipes: @recipes %>
+                </ul>
+        		</div>
 
-			  <section class="home-featured-cat mag-cat-style-3">
+				<section class="home-featured-cat mag-cat-style-3">
 					<div class="penci-border-arrow penci-homepage-title penci-home-latest-posts style-2 pcalign-left">
-            <h3 class="inner-arrow">Bánh ngọt</h3>
-			  	</div>
-				  <div class="home-featured-cat-content style-3">
-
-<div class="mag-photo">
-	<div class="magcat-thumb">
-				<a href="https://www.esheepkitchen.com/love-yourself-cach-lam-banh-chuoi-nuong-chocolate-love-yourself-qua-tang-giveaway-valentines-day-cho-hoi-f-a/" class="mag-overlay-photo"></a>
-				<a class="penci-image-holder" style="background-image: url(&#39;https://www.esheepkitchen.com/wp-content/themes/soledad/images/no-image.jpg&#39;);" href="https://www.esheepkitchen.com/love-yourself-cach-lam-banh-chuoi-nuong-chocolate-love-yourself-qua-tang-giveaway-valentines-day-cho-hoi-f-a/" title="/LOVE YOURSELF/ CÁCH LÀM BÁNH CHUỐI NƯỚNG CHOCOLATE “LOVE YOURSELF” &amp; QUÀ TẶNG GIVEAWAY VALENTINE’s DAY cho hội F.A">
-		</a>
-						<div class="magcat-detail">
-			<h3 class="magcat-titlte"><a href="https://www.esheepkitchen.com/love-yourself-cach-lam-banh-chuoi-nuong-chocolate-love-yourself-qua-tang-giveaway-valentines-day-cho-hoi-f-a/">/LOVE YOURSELF/ CÁCH LÀM BÁNH CHUỐI NƯỚNG CHOCOLATE “LOVE YOURSELF” &amp; QUÀ TẶNG GIVEAWAY VALENTINE’s DAY cho hội F.A</a></h3>
-							<div class="grid-post-box-meta mag-meta">
-																<span>February 14, 2020</span>
-									</div>
+            			<h3 class="inner-arrow">Được yêu thích</h3>
 					</div>
-	</div>
-</div>
-<div class="mag-photo">
-	<div class="magcat-thumb">
-				<a href="https://www.esheepkitchen.com/valentines-day-cach-lam-coco-brownie-hoan-hao-nhu-crush-cua-ban/" class="mag-overlay-photo"></a>
-				<a class="penci-image-holder" style="background-image: url(&#39;https://i0.wp.com/www.esheepkitchen.com/wp-content/uploads/2020/02/1-5.jpg?resize=585%2C390&amp;ssl=1&#39;);" href="https://www.esheepkitchen.com/valentines-day-cach-lam-coco-brownie-hoan-hao-nhu-crush-cua-ban/" title="VALENTINE’S DAY: CÁCH LÀM COCO-BROWNIE HOÀN HẢO NHƯ CRUSH CỦA BẠN">
-		</a>
-																							<div class="magcat-detail">
-			<h3 class="magcat-titlte"><a href="https://www.esheepkitchen.com/valentines-day-cach-lam-coco-brownie-hoan-hao-nhu-crush-cua-ban/">VALENTINE’S DAY: CÁCH LÀM COCO-BROWNIE HOÀN HẢO NHƯ CRUSH CỦA BẠN</a></h3>
-							<div class="grid-post-box-meta mag-meta">
-																<span>February 12, 2020</span>
-									</div>
+					<div class="home-featured-cat-content style-3">
+						<%= render 'recipes/recipe_list_2', recipes: @recipes_rcm %>
 					</div>
-	</div>
-</div>
-<div class="mag-photo">
-	<div class="magcat-thumb">
-				<a href="https://www.esheepkitchen.com/summer-cheesecake-no-baked/" class="mag-overlay-photo"></a>
-				<a class="penci-image-holder" style="background-image: url(&#39;https://i2.wp.com/www.esheepkitchen.com/wp-content/uploads/2019/06/man-1.jpg?resize=585%2C390&amp;ssl=1&#39;);" href="https://www.esheepkitchen.com/summer-cheesecake-no-baked/" title="SUMMER CHEESECAKE (NO-BAKED)">
-		</a>
-																							<div class="magcat-detail">
-			<h3 class="magcat-titlte"><a href="https://www.esheepkitchen.com/summer-cheesecake-no-baked/">SUMMER CHEESECAKE (NO-BAKED)</a></h3>
-							<div class="grid-post-box-meta mag-meta">
-																<span>June 16, 2019</span>
-									</div>
+				</section>
+
+				<section class="home-featured-cat mag-cat-style-1">
+					<div class="penci-border-arrow penci-homepage-title penci-home-latest-posts style-2 pcalign-left">
+						<h3 class="inner-arrow">Góc review</h3>
 					</div>
-	</div>
-</div>
-<div class="mag-photo">
-	<div class="magcat-thumb">
-				<a href="https://www.esheepkitchen.com/cach-lam-bizcocho-de-limon-banh-truyen-thong-tay-ban-nha/" class="mag-overlay-photo"></a>
-				<a class="penci-image-holder" style="background-image: url(&#39;https://i1.wp.com/www.esheepkitchen.com/wp-content/uploads/2019/03/bizeno.jpg?resize=585%2C390&amp;ssl=1&#39;);" href="https://www.esheepkitchen.com/cach-lam-bizcocho-de-limon-banh-truyen-thong-tay-ban-nha/" title="CÁCH LÀM BIZCOCHO DE LIMÓN BÁNH TRUYỀN THỐNG TÂY BAN NHA">
-		</a>
-																							<div class="magcat-detail">
-			<h3 class="magcat-titlte"><a href="https://www.esheepkitchen.com/cach-lam-bizcocho-de-limon-banh-truyen-thong-tay-ban-nha/">CÁCH LÀM BIZCOCHO DE LIMÓN&nbsp;BÁNH TRUYỀN THỐNG TÂY BAN NHA</a></h3>
-							<div class="grid-post-box-meta mag-meta">
-																<span>January 3, 2019</span>
-									</div>
+					<div class="home-featured-cat-content style-1">
+						<div class="cat-left">
+							<div class="mag-post-box first-post">
+								<div class="magcat-thumb">
+									<a class="penci-image-holder" style="background-image: url(&#39;https://i0.wp.com/www.esheepkitchen.com/wp-content/uploads/2020/02/28-1.jpg?resize=533%2C390&amp;ssl=1&#39;);" href="#"></a>
+								</div>
+								<div class="magcat-detail">
+									<div class="mag-header">
+										<h3 class="magcat-titlte"><a href="#">Món ngon dân dã ngày xuân – CÁCH LÀM BÁNH ĐÚC LẠC BẰNG CHẢO &amp; BẾP TỪ</a></h3>
+										<div class="grid-post-box-meta mag-meta">
+											<span>February 6, 2020</span>
+										</div>
+									</div>			
+								</div>
+							</div>
+						</div>
+
+						<div class="cat-right">
+							<%= render 'recipes/recipe_list_3', recipes: @recipes_1 %>
+						</div>																
 					</div>
-	</div>
-</div>																</div>
-
-
-
-						</section>
-
-											<section class="home-featured-cat mag-cat-style-1">
-							<div class="penci-border-arrow penci-homepage-title penci-magazine-title style-2 pcalign-center">
-					<h3 class="inner-arrow"><a href="https://www.esheepkitchen.com/category/inspiration/ky-uc-ha-noi/">Ký ức Hà Nội</a></h3>
-				</div>
-				<div class="home-featured-cat-content style-1">
-																	<div class="cat-left"><div class="mag-post-box first-post">
-	<div class="magcat-thumb">
-						<a class="penci-image-holder" style="background-image: url(&#39;https://i0.wp.com/www.esheepkitchen.com/wp-content/uploads/2020/02/28-1.jpg?resize=533%2C390&amp;ssl=1&#39;);" href="https://www.esheepkitchen.com/mon-ngon-dan-da-ngay-xuan-cach-lam-banh-duc-lac-bang-chao-bep-tu/" title="Món ngon dân dã ngày xuân – CÁCH LÀM BÁNH ĐÚC LẠC BẰNG CHẢO &amp; BẾP TỪ">
-		</a>
-																						</div>
-	<div class="magcat-detail">
-		<div class="mag-header">		<h3 class="magcat-titlte"><a href="https://www.esheepkitchen.com/mon-ngon-dan-da-ngay-xuan-cach-lam-banh-duc-lac-bang-chao-bep-tu/">Món ngon dân dã ngày xuân – CÁCH LÀM BÁNH ĐÚC LẠC BẰNG CHẢO &amp; BẾP TỪ</a></h3>
-							<div class="grid-post-box-meta mag-meta">
-																<span>February 6, 2020</span>
-									</div>
-					</div>			</div>
-</div>
-</div><div class="cat-right"><div class="mag-post-box">
-	<div class="magcat-thumb">
-						<a class="penci-image-holder small-fix-size" style="background-image: url(&#39;https://i1.wp.com/www.esheepkitchen.com/wp-content/uploads/2019/10/48907300617_cca921e18a_k.jpg?resize=585%2C390&amp;ssl=1&#39;);" href="https://www.esheepkitchen.com/cach-lam-nom-banh-duc/" title="CÁCH LÀM NỘM BÁNH ĐÚC">
-		</a>
-																						</div>
-	<div class="magcat-detail">
-				<h3 class="magcat-titlte"><a href="https://www.esheepkitchen.com/cach-lam-nom-banh-duc/">CÁCH LÀM NỘM BÁNH ĐÚC</a></h3>
-							<div class="grid-post-box-meta mag-meta">
-																<span>October 16, 2019</span>
-									</div>
-								</div>
-</div>
-<div class="mag-post-box">
-	<div class="magcat-thumb">
-						<a class="penci-image-holder small-fix-size" style="background-image: url(&#39;https://i0.wp.com/www.esheepkitchen.com/wp-content/uploads/2019/10/6.jpg?resize=585%2C390&amp;ssl=1&#39;);" href="https://www.esheepkitchen.com/24h-ho-hen-voi-mua-thu-ha-noi/" title="24H HÒ HẸN VỚI MÙA THU HÀ NỘI">
-		</a>
-																						</div>
-	<div class="magcat-detail">
-				<h3 class="magcat-titlte"><a href="https://www.esheepkitchen.com/24h-ho-hen-voi-mua-thu-ha-noi/">24H HÒ HẸN VỚI MÙA THU HÀ NỘI</a></h3>
-							<div class="grid-post-box-meta mag-meta">
-																<span>October 14, 2019</span>
-									</div>
-								</div>
-</div>
-<div class="mag-post-box">
-	<div class="magcat-thumb">
-						<a class="penci-image-holder small-fix-size" style="background-image: url(&#39;https://i0.wp.com/www.esheepkitchen.com/wp-content/uploads/2019/09/IMG_1922.jpg?resize=585%2C390&amp;ssl=1&#39;);" href="https://www.esheepkitchen.com/cach-lam-bap-xao-tep-mot-thoi-de-nho/" title="CÁCH LÀM BẮP XÀO TÉP “MỘT THỜI ĐỂ NHỚ”">
-		</a>
-																						</div>
-	<div class="magcat-detail">
-				<h3 class="magcat-titlte"><a href="https://www.esheepkitchen.com/cach-lam-bap-xao-tep-mot-thoi-de-nho/">CÁCH LÀM BẮP XÀO TÉP “MỘT THỜI ĐỂ NHỚ”</a></h3>
-							<div class="grid-post-box-meta mag-meta">
-																<span>September 25, 2019</span>
-									</div>
-								</div>
-</div>
-<div class="mag-post-box">
-	<div class="magcat-thumb">
-						<a class="penci-image-holder small-fix-size" style="background-image: url(&#39;https://i1.wp.com/www.esheepkitchen.com/wp-content/uploads/2019/05/mam3.jpg?resize=585%2C390&amp;ssl=1&#39;);" href="https://www.esheepkitchen.com/cach-lam-mam-tep-chung-top-mo-thit-bam/" title="CÁCH LÀM MẮM TÉP CHƯNG TÓP MỠ THỊT BĂM">
-		</a>
-																						</div>
-	<div class="magcat-detail">
-				<h3 class="magcat-titlte"><a href="https://www.esheepkitchen.com/cach-lam-mam-tep-chung-top-mo-thit-bam/">CÁCH LÀM MẮM TÉP CHƯNG TÓP MỠ THỊT BĂM</a></h3>
-							<div class="grid-post-box-meta mag-meta">
-																<span>May 10, 2019</span>
-									</div>
-								</div>
-</div>
-</div>																</div>
-
-
-
-						</section>
-
-      </div>
-    </div>
+				</section>
+  			</div>
+    	</div>
 
 <div id="sidebar" class="penci-sidebar-content style-4 pcalign-center penci-sticky-sidebar" style="position: relative; overflow: visible; box-sizing: border-box; min-height: 1px;">
 	<div class="theiaStickySidebar" style="padding-top: 0px; padding-bottom: 1px; position: static;">
@@ -219,57 +123,23 @@
 			<aside id="custom_html-4" class="widget_text widget widget_custom_html">
 			<div class="textwidget custom-html-widget">
 				<aside id="text-3" class="widget widget_text">
-				<h4 class="widget-title penci-border-arrow"><span class="inner-arrow">Youtube</span></h4><div class="textwidget"><p><div class="fluid-width-video-wrapper" style="padding-top: 50%;"><iframe src="./esheep_files/JYr1_oUKylo.html" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen="" name="fitvid0"></iframe></div><br> <div class="fluid-width-video-wrapper" style="padding-top: 50%;"><iframe src="./esheep_files/3sUGdyKhLBk.html" frameborder="0" allowfullscreen="" name="fitvid1"></iframe></div> <br> <div class="fluid-width-video-wrapper" style="padding-top: 50%;"><iframe src="./esheep_files/YkLe0nZPiPE.html" frameborder="0" allowfullscreen="" name="fitvid2"></iframe></div></p></div></aside></div></aside><aside id="jr_insta_slider-5" class="widget jr-insta-slider"><h4 class="widget-title penci-border-arrow"><span class="inner-arrow">INSTAGRAM</span></h4>Instagram requires authorization to view a user profile. Use autorized account in widget settings</aside><aside id="categories-5" class="widget widget_categories"><h4 class="widget-title penci-border-arrow"><span class="inner-arrow">Danh mục</span></h4>		<ul>
-				<li class="cat-item cat-item-19"><a href="https://www.esheepkitchen.com/category/biblelicious/">Biblelicious <span class="category-item-count">(23)</span></a>
-<ul class="children">
-	<li class="cat-item cat-item-8"><a href="https://www.esheepkitchen.com/category/biblelicious/kitchen-tips-tricks/">Mẹo vặt <span class="category-item-count">(10)</span></a>
-</li>
-</ul>
-</li>
-	<li class="cat-item cat-item-15"><a href="https://www.esheepkitchen.com/category/inspiration/">Cảm hứng sống <span class="category-item-count">(51)</span></a>
-<ul class="children">
-	<li class="cat-item cat-item-139"><a href="https://www.esheepkitchen.com/category/inspiration/goc-nho-esheep/">Góc nhỏ Esheep <span class="category-item-count">(21)</span></a>
-</li>
-	<li class="cat-item cat-item-17"><a href="https://www.esheepkitchen.com/category/inspiration/ky-uc-ha-noi/">Ký ức Hà Nội <span class="category-item-count">(21)</span></a>
-</li>
-	<li class="cat-item cat-item-201"><a href="https://www.esheepkitchen.com/category/inspiration/nhat-ki-xay-mo/">Nhật kí xây mơ <span class="category-item-count">(8)</span></a>
-</li>
-</ul>
-</li>
-	<li class="cat-item cat-item-138"><a href="https://www.esheepkitchen.com/category/recipe/">Công Thức <span class="category-item-count">(132)</span></a>
-<ul class="children">
-	<li class="cat-item cat-item-13"><a href="https://www.esheepkitchen.com/category/recipe/bread/">Bánh mì <span class="category-item-count">(3)</span></a>
-</li>
-	<li class="cat-item cat-item-4"><a href="https://www.esheepkitchen.com/category/recipe/cakes-and-sweet-treats/">Bánh ngọt <span class="category-item-count">(25)</span></a>
-</li>
-	<li class="cat-item cat-item-10"><a href="https://www.esheepkitchen.com/category/recipe/breakfast/">Breakfast <span class="category-item-count">(4)</span></a>
-</li>
-	<li class="cat-item cat-item-6"><a href="https://www.esheepkitchen.com/category/recipe/drink/">Đồ uống <span class="category-item-count">(15)</span></a>
-</li>
-	<li class="cat-item cat-item-9"><a href="https://www.esheepkitchen.com/category/recipe/appetizers/">Khai vị <span class="category-item-count">(10)</span></a>
-</li>
-	<li class="cat-item cat-item-20"><a href="https://www.esheepkitchen.com/category/recipe/korean-food/">Korean Food <span class="category-item-count">(7)</span></a>
-</li>
-	<li class="cat-item cat-item-11"><a href="https://www.esheepkitchen.com/category/recipe/main-dishes/">Món chính <span class="category-item-count">(20)</span></a>
-</li>
-	<li class="cat-item cat-item-12"><a href="https://www.esheepkitchen.com/category/recipe/side-dishes/">Món phụ <span class="category-item-count">(15)</span></a>
-</li>
-	<li class="cat-item cat-item-3"><a href="https://www.esheepkitchen.com/category/recipe/dessert/">Món tráng miệng <span class="category-item-count">(17)</span></a>
-</li>
-	<li class="cat-item cat-item-14"><a href="https://www.esheepkitchen.com/category/recipe/vietnamese-cuisine/">Món Việt Nam <span class="category-item-count">(40)</span></a>
-</li>
-</ul>
-</li>
-	<li class="cat-item cat-item-161"><a href="https://www.esheepkitchen.com/category/cookbook/">Cookbook <span class="category-item-count">(5)</span></a>
-</li>
-	<li class="cat-item cat-item-129"><a href="https://www.esheepkitchen.com/category/goc-review/">Góc Review <span class="category-item-count">(12)</span></a>
-</li>
-	<li class="cat-item cat-item-194"><a href="https://www.esheepkitchen.com/category/group-yeu-bep/">Group Yêu Bếp <span class="category-item-count">(14)</span></a>
-</li>
-	<li class="cat-item cat-item-106"><a href="https://www.esheepkitchen.com/category/travel/">Travel <span class="category-item-count">(16)</span></a>
-</li>
-	<li class="cat-item cat-item-1"><a href="https://www.esheepkitchen.com/category/uncategorized/">Uncategorized <span class="category-item-count">(2)</span></a>
-</li>
+				<h4 class="widget-title penci-border-arrow"><span class="inner-arrow">Youtube</span></h4>
+				<div class="textwidget">
+					<p>
+					<div class="fluid-width-video-wrapper" style="padding-top: 50%;">
+						<iframe src="https://www.youtube.com/embed/8LMgxCfPb20" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen="" name="fitvid0"></iframe></div><br> <div class="fluid-width-video-wrapper" style="padding-top: 50%;"><iframe src="https://www.youtube.com/embed/8LMgxCfPb20" frameborder="0" allowfullscreen="" name="fitvid1"></iframe></div> <br> <div class="fluid-width-video-wrapper" style="padding-top: 50%;"><iframe src="https://www.youtube.com/embed/8LMgxCfPb20" frameborder="0" allowfullscreen="" name="fitvid2"></iframe></div></p></div></aside></div></aside><aside id="jr_insta_slider-5" class="widget jr-insta-slider"><h4 class="widget-title penci-border-arrow"><span class="inner-arrow">INSTAGRAM</span></h4>Instagram requires authorization to view a user profile. Use autorized account in widget settings</aside><aside id="categories-5" class="widget widget_categories"><h4 class="widget-title penci-border-arrow"><span class="inner-arrow">Danh mục</span></h4>		
+        <ul>
+  				<li class="cat-item cat-item-19"><a href="#">Công thức<span class="category-item-count">(<%= Recipe.count %>)</span></a>
+            <ul class="children">
+            <% Category.all.each do |category| %>
+				<li class="cat-item cat-item-8">
+					<a href="<%= recipes_path params: {query: category.name, type: :category} %>"><%= category.name %><span class="category-item-count">(<%= category.recipes.count %>)</span></a>
+            	</li>
+            <% end %>
+            </ul>
+          </li>
+          <li class="cat-item cat-item-19"><a href="#">About us<span class="category-item-count"></span></a>
+          </li>
 		</ul>
 			</aside>	</div>
 </div>

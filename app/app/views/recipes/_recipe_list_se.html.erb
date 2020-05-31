@@ -1,0 +1,67 @@
+<div class="row">
+  <% recipes.each do |recipe| %>
+
+    <style>
+      .recipe-image {
+        height: 220px;
+        overflow: hidden;
+      }
+      .recipe-image:hover {
+        opacity: 0.8;
+      }
+      .recipe-image img {
+        min-width:  100%;
+        min-height: 100%;
+        object-fit:cover;
+      }
+    </style>
+
+    <div class="recipe-item col-12 col-sm-6 col-md-6 mb-5">
+      <a href="<%= recipe.is_premium? && !current_user&.is_premium? ? premium_info_path : recipe_path(recipe) %>" class="recipe-name">
+        <div class="recipe-image full-width p-relative">
+          <img src="<%= recipe.image %>" alt="">
+          <% if recipe.is_premium? %>
+            <div class="premium-label">
+              <p>Premium</p>
+            </div>
+          <% end %>
+        </div>
+      </a>
+      <div class="blog-content">
+        <div class="row">
+          <div class="col-md-9">
+            <a href="#" class="category-name disabled">
+              <%= recipe.category.name %>
+            </a>
+            <p class="mb-0 rating-avg">
+              <span><%= recipe.get_average_rating ? recipe.get_average_rating : "0.0" %></span>
+              <i class="fas fa-star"></i>
+              <span>(<%= recipe.get_rate_times ? recipe.get_rate_times : "0" %> rating)</span>
+            </p>
+          </div>
+
+          <% if user_signed_in? %>
+            <div class="col-md-3">
+              <i class="recipe-bookmark text-danger recipe-name <%= current_user.bookmarks.where(recipe_id: recipe.id).first.nil? ? " far " : "fas " %> fa-heart fa-2x" data-recipe_id="<%= recipe.id %>" style="cursor: pointer"></i>
+            </div>
+          <% end %>
+        </div>
+        <a href="<%= recipe.is_premium? && !current_user&.is_premium? ? premium_info_path : recipe_path(recipe) %>" class="recipe-name mt-0"><%= recipe.name %></a>        
+      </div>
+
+      <div class="grid-post-box-meta">
+        <span><%= recipe.created_at.strftime("%b %d, %Y") %></span>
+      </div>
+
+      <div class="penci-post-box-meta penci-post-box-grid">
+        <div class="penci-post-share-box">
+              <a target="_blank" href="#"><i class="fab fa-facebook-f"></i><span class="dt-share">Facebook</span></a>
+              <a target="_blank" href="#"><i class="fab fa-twitter"></i><span class="dt-share">Twitter</span></a>
+              <a target="_blank" href="#"><i class="fab fa-google-plus-g"></i><span class="dt-share">Google +</span></a>
+              <a data-pin-do="none" target="_blank" href="#"><i class="fab fa-pinterest-p"></i><span class="dt-share">Pinterest</span></a>
+        </div>
+      </div>
+    </div>
+
+  <% end %>
+</div>
