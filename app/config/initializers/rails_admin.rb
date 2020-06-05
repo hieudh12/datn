@@ -1,5 +1,35 @@
 RailsAdmin.config do |config|
 
+  config.model 'Admin' do
+    edit do
+      exclude_fields :remember_created_at
+    end
+    list do
+      exclude_fields :remember_created_at
+    end
+  end
+
+  config.model 'Recipe' do
+    edit do
+      exclude_fields :comments, :bookmarks, :ratings
+    end
+  end
+
+  config.model 'User' do
+    list do
+      exclude_fields :remember_created_at
+    end
+    edit do
+      exclude_fields :remember_created_at, :reset_password_sent_at, :replies, :comments, :bookmarks, :ratings, :premium_purchases
+    end
+  end
+
+  config.model 'PremiumPurchase' do
+    list do
+      exclude_fields :updated_at
+    end
+  end
+
   ### Popular gems integration
 
   ## == Devise ==
@@ -26,18 +56,22 @@ RailsAdmin.config do |config|
   config.actions do
     dashboard                     # mandatory
     index                         # mandatory
-    new
-    export
+    new do
+      except ['Admin', 'Bookmark', 'Comment', 'Reply', 'Rating']
+    end
     bulk_delete
-    show
+    show do
+      except ['Admin']
+    end
     edit do
-      except ['Comment', 'Reply']
+      except ['Comment', 'Reply', 'User', 'Bookmark', 'Rating']
     end
     delete do
-      except ['Comment', 'Reply']
+      except ['Admin', 'Bookmark', 'Rating']
     end
-    show_in_app
-
+    show_in_app do
+      except ['Bookmark']
+    end
     ## With an audit adapter, you can add:
     # history_index
     # history_show

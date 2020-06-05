@@ -9,7 +9,7 @@
           Bookmarked Items
         </h3>
         <% if @recipes.count > 0 %>
-          <%= render 'recipes/recipe_list', recipes: @recipes %>
+          <%= render 'recipes/recipe_list_se', recipes: @recipes %>
         <% else %>
           <h2 class="text-secondary">You have not bookmarked any recipe</h2>
         <% end %>
