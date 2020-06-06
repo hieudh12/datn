@@ -12,6 +12,13 @@ RailsAdmin.config do |config|
   config.model 'Recipe' do
     edit do
       exclude_fields :comments, :bookmarks, :ratings
+      field :recipe, :ck_editor
+    end
+    show do
+      exclude_fields :recipe
+    end
+    list do
+      exclude_fields :recipe, :time_to_cook, :energy
     end
   end
 

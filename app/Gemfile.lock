@@ -76,6 +76,8 @@ GEM
     chromedriver-helper (2.1.1)
       archive-zip (~> 0.10)
       nokogiri (~> 1.8)
+    ckeditor (5.1.0)
+      orm_adapter (~> 0.5.0)
     coderay (1.1.2)
     coffee-rails (4.2.2)
       coffee-script (>= 2.2.0)
@@ -279,11 +281,13 @@ DEPENDENCIES
   capybara (>= 2.15)
   carrierwave (~> 2.0)
   chromedriver-helper
+  ckeditor
   coffee-rails (~> 4.2)
   devise
   jbuilder (~> 2.5)
   kaminari
   listen (>= 3.0.5, < 3.2)
+  mini_magick
   mysql2 (~> 0.5.2)
   pry (~> 0.12.2)
   puma (~> 3.12)

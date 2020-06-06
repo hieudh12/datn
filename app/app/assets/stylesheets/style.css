@@ -67,6 +67,17 @@ img {
   height: auto;
   max-width: 100%; }
 
+#recipe ol li {
+	list-style: decimal;
+}
+#recipe ul li {
+  list-style: disc;
+}
+#recipe {
+  text-align: justify;
+  padding-left: 2%;
+}
+
 /* :: 3.1.0 Spacing */
 .mt-15 {
   margin-top: 15px !important; }
