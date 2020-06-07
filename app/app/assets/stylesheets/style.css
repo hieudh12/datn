@@ -437,7 +437,8 @@ h3 {
   font-size: 14px;
   line-height: 50px;
   font-weight: 500;
-  text-transform: capitalize; }
+  text-transform: capitalize;
+  margin-top: 10px; }
   .bueno-btn:hover, .bueno-btn:focus {
     font-size: 14px;
     font-weight: 500;
@@ -1443,7 +1444,7 @@ h3 {
       .comment_area .comment-content .comment-author {
         margin-right: 15px; } }
   .comment_area .comment-content .comment-meta {
-    margin-bottom: 30px; }
+    margin-bottom: 1px; }
     .comment_area .comment-content .comment-meta .post-author,
     .comment_area .comment-content .comment-meta .post-date,
     .comment_area .comment-content .comment-meta .reply {
@@ -1482,15 +1483,16 @@ h3 {
       .comment_area .comment-content .comment-meta .reply::after {
         display: none; }
     .comment_area .comment-content .comment-meta p {
-	  margin-bottom: 15px;
-	  margin-left: 18%;
+	    margin-left: 60px;
       font-size: 14px;
       line-height: 2;
-      font-weight: 500; }
+	    font-weight: 500;
+	    margin-bottom: 10px; }
   .comment_area .single_comment_area {
-    margin-bottom: 30px; }
+    margin-bottom: 30px;
+    padding-left: 15px; }
     .comment_area .single_comment_area:last-of-type {
-      margin-bottom: 0; }
+      padding-left: 15px; }
   .comment_area .children .single_comment_area {
     margin-left: 50px;
     margin-top: 30px; }
@@ -1648,7 +1650,6 @@ h3 {
   width: 100%;
   background-color: #ffffff;
   font-size: 12px;
-  margin-bottom: 15px;
   border: 1px solid #dadfe5;
   border-bottom: 2px solid #dadfe5;
   border-radius: 0;

@@ -42,7 +42,7 @@
 
           <% if user_signed_in? %>
             <div class="col-md-3">
-              <i class="recipe-bookmark text-danger recipe-name <%= current_user.bookmarks.where(recipe_id: recipe.id).first.nil? ? " far " : "fas " %> fa-heart fa-2x" data-recipe_id="<%= recipe.id %>" style="cursor: pointer"></i>
+              <i class="recipe-bookmark text-danger recipe-name <%= current_user.bookmarks.where(recipe_id: recipe.id).first.nil? ? " far " : "fas " %> fa-heart fa-2x" data-recipe_id="<%= recipe.id %>" style="cursor: copy" title="Add to Bookmark!"></i>
             </div>
           <% end %>
         </div>

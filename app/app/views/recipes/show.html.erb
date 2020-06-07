@@ -1,4 +1,4 @@
-<section class="recipe-detail post-news-area section-padding-100-0 mb-70">
+<section class="recipe-detail post-news-area section-padding-100-0 mb-30">
   <div id="recipe-id" data-recipe_id="<%= @recipe.id %>"></div>
   <div class="container">
     <div class="row justify-content-center">
@@ -8,7 +8,7 @@
           <div class="blog-thumbnail mb-50 recipe-image full-width p-relative">
             <img src="<%= @recipe.image.url %>" alt="">
             <% if user_signed_in? %>
-              <i class="recipe-bookmark text-danger recipe-name <%= current_user.bookmarks.where(recipe_id: @recipe.id).first.nil? ? " far " : "fas " %> fa-heart fa-2x" data-recipe_id="<%= @recipe.id %>" style="cursor: pointer"></i>
+              <i class="recipe-bookmark text-danger recipe-name <%= current_user.bookmarks.where(recipe_id: @recipe.id).first.nil? ? " far " : "fas " %> fa-heart fa-2x" data-recipe_id="<%= @recipe.id %>" style="cursor: copy" title="Add to Bookmark!"></i>
             <% end %>
           </div>
           <div class="blog-content">
@@ -53,12 +53,13 @@
 
           <!-- Custom Checkbox -->
           <% @recipe.ingredients.each_with_index do |ingredient, idx| %>
-          <div class="custom-control custom-checkbox">
-            <input type="checkbox" class="custom-control-input" id="<%= 'customCheck' + idx.to_s %>">
-            <label class="custom-control-label"
-              for="<%= 'customCheck' + idx.to_s %>"><%= ingredient.name + ': ' + ingredient.amount&.to_s + ingredient.unit %></label>
-          </div>
-          <%end %>
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input" id="<%= 'customCheck' + idx.to_s %>">
+              <label class="custom-control-label"
+                for="<%= 'customCheck' + idx.to_s %>"><%= ingredient.name + ': ' + ingredient.amount&.to_s + ingredient.unit %>
+              </label>
+            </div>
+          <% end %>
         </div>
       </div>
     </div>
@@ -198,7 +199,8 @@
                     <a href="#" class="post-date" onclick=<%= formCmtShow%>>Reply</a>
                     <a href="#" class="post-date" onclick="$('#comment<%= comment.id%>').show()">Edit</a>
                     <a
-                      href="#"><%= link_to 'Delete', comment_path(comment), method: :delete, data: { confirm: 'Are you sure?' }, class: "reply" %></a>
+                      href="#"><%= link_to 'Delete', comment_path(comment), method: :delete, data: { confirm: 'Are you sure?' }, class: "reply" %>
+                    </a>
                   <% else %>
                     <a href="#" class="reply" onclick=<%= formCmtShow%>>Reply</a>
                   <% end %>
@@ -208,7 +210,7 @@
               <div id="comment<%= comment.id%>" style="display:none;" class="form-group">
                 <%= form_for(@comment, :url => url_for(:controller => 'comments', :action => 'update'), method: "put") do |f| %>
                 <%= f.hidden_field :id, value: comment.id%>
-                <input type="text" name="comment[content]" class="form-control" value=<%= comment.content%>>
+                <input type="text" name="comment[content]" class="form-control" value=<%= comment.content%> >
                 <div class="row">
                   <div class="col-6">
                     <button class="btn mt-30 pull-right" type="submit" style="background-color:#b0c364;color:#fff;">Update
@@ -230,7 +232,7 @@
                   <%= f.text_area :content, class: "form-control rounded-0", cols: "30", rows: "5", placeholder: "Your comment..." %>
                 </div>
                 <div class="col-12">
-                  <button class="btn bueno-btn mt-30" type="submit">Submit Reply</button>
+                  <button class="btn bueno-btn" type="submit">Submit Reply</button>
                 </div>
                 <% end %>
               </div>
@@ -254,15 +256,12 @@
                     <a href="#" class="post-author"><%= reply.user.username%></a>
                     <a href="#" class="post-date"><%= reply.created_at.strftime("%d %b, %Y %H:%M")%></a>
                     <% if user_signed_in? %>
-                    <% if reply.user_id == current_user.id %>
-                    <a href="#" class="post-date" onclick=<%= formShow%>>Reply</a>
-                    <a href="#" class="post-date" onclick="$('#reply<%= reply.id%>').show()">Edit</a>
-
-                    <a
-                      href="#"><%= link_to 'Delete', destroy_reply_path(reply), method: :delete, data: { confirm: 'Are you sure?' }, class: "reply" %></a>
-                    <% else %>
-                    <a href="#" class="reply" onclick=<%=formShow%>>Reply</a>
-                    <% end %>
+                      <% if reply.user_id == current_user.id %>
+                        <a href="#" class="post-date" onclick="$('#reply<%= reply.id%>').show()">Edit</a>
+                        <a
+                          href="#"><%= link_to 'Delete', destroy_reply_path(reply), method: :delete, data: { confirm: 'Are you sure?' }, class: "reply" %>
+                        </a>
+                      <% end %>
                     <% end %>
                   </div>
                   <p><%= reply.content%></p>

@@ -7,14 +7,14 @@ class UsersController < ApplicationController
   end
 
   def update_profile
-      @user = User.find(current_user.id)
-      if @user.update_with_password(user_profile_params)
-        flash[:notice] = "Your profile was successfully updated"
-        redirect_to profile_path
-      else
-        flash[:error] = @user.errors
-        redirect_to profile_path
-      end
+    @user = User.find(current_user.id)
+    if @user.update_with_password(user_profile_params)
+      flash[:notice] = "Your profile was successfully updated"
+      redirect_to profile_path
+    else
+      flash[:error] = "Your current password incorrect"
+      redirect_to profile_path
+    end
   end
 
   def change_password
