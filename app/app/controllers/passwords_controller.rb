@@ -11,7 +11,9 @@ class PasswordsController < ApplicationController
 
     if user.present?
       # user.set_reset_password_token() #generate pass token
-      user.send_reset_password_instructions
+      user.generate_password_token
+      @token = user.reset_password_token
+      # user.send_reset_password_instructions
       # SEND EMAIL HERE
       send_mail user
       # render json: {status: 'ok'}, status: :ok
@@ -24,9 +26,8 @@ class PasswordsController < ApplicationController
 
   def reset
     token = params[:token].to_s
-
     user = User.find_by(reset_password_token: token)
-    if user.present? && user.reset_password_period_valid?
+    if user.present? && user.password_token_valid?
       if user.reset_password(params[:password], params[:password_confirmation])
         sign_in(user)
         redirect_to home_url

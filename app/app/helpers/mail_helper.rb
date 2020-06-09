@@ -29,8 +29,8 @@ module MailHelper
     mail = SendGrid::Mail.new(from, subject, to, content)
     # puts JSON.pretty_generate(mail.to_json)
     puts mail.to_json
-
-    sg = SendGrid::API.new(api_key: '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', host: 'https://api.sendgrid.com')
+    # binding.pry
+    sg = SendGrid::API.new(api_key: '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', host: 'https://api.sendgrid.com')
     response = sg.client.mail._('send').post(request_body: mail.to_json)
     puts response.status_code
     puts response.body
