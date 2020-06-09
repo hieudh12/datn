@@ -68,9 +68,9 @@ private
   end
 
   def set_variables
-    @category_1 = Category.where(name: "Heathy food").take
+    @category_1 = Category.where(name: "Ký ức Hà Nội").take
     @recipes_1 = @category_1.recipes.order('created_at DESC').limit(4)
-    @category_rv = Category.where(name: "Meaty food").take
+    @category_rv = Category.where(name: "Góc review").take
     @recipes_rv = @category_rv.recipes.order('created_at DESC').limit(5)
   end
 end

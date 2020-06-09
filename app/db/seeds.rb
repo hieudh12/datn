@@ -14,13 +14,13 @@ Admin.create(
 
 User.create([
   {
-    username: 'user123',
-    email: '123@abc.com',
+    username: 'hieu do',
+    email: 'hieudo@gmail.com',
     password: '123456'
   },
   {
-    username: 'user1234',
-    email: '1234@abc.com',
+    username: 'ha noi',
+    email: 'hanoi@gmail.com',
     password: '123456'
   }
 ])
@@ -28,24 +28,24 @@ User.create([
 # Seed categories
 categories = Category.create([
   {
-    name: 'Heathy food',
-    description: 'Good for your heath'
+    name: 'Ký ức Hà Nội',
+    description: 'Cách chế biến những món ăn đậm nét Hà Thành xưa'
   },
   {
-    name: 'Meaty food',
-    description: 'For meat lovers'
+    name: 'Món ngon ngày Tết',
+    description: 'Cách chế biến cơm Tết cổ truyền của người Việt'
   },
   {
-    name: 'Vegan food',
-    description: 'Vegetarians'
+    name: 'Ẩm thực miền trung',
+    description: 'Cách chế biến những món ăn đặc sản của miền trung - Việt Nam'
   },
   {
-    name: 'Beef dish',
-    description: 'Best beef dishes ever'
+    name: 'Cảm nhận Sài Gòn',
+    description: 'Cách chế biến những món ăn được yêu thích ở Sài Gòn'
   },
   {
-    name: 'Pork dish',
-    description: 'Best pork dishes ever'
+    name: 'Góc review',
+    description: 'Trải nghiệm của tác giả về những đặc sản vùng miền trên khắp đất nước Việt Nam'
   },
 ])
 
