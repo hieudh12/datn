@@ -35,6 +35,11 @@
 	<ul class="penci-wrapper-data penci-grid">	
           			<%= render 'recipes/recipe_list', recipes: @recipes %>
               </ul>
+			  <div class="penci-pagination penci-ajax-more penci-ajax-home penci-ajax-more-click">
+		
+									<%= paginate @recipes %>
+								
+							</div>
         		</div>
 
 				<section class="home-featured-cat mag-cat-style-3">
@@ -82,7 +87,7 @@
       <span class="inner-arrow">Author</span>
     </h4>
 			<div class="about-widget pc_aligncenter">
-																				<img class="penci-widget-about-image holder-square penci-lazy" src="/assets/core-img/logo2.png" alt="Author" style="border-radius: 50%; display: inline;">
+																				<img class="penci-widget-about-image holder-square penci-lazy" src="/assets/core-img/vnf2.png" alt="Author" style="border-radius: 50%; display: inline;">
 									<p>Căn Bếp nhà Esheep. Góc nhỏ mày mò chia sẻ công thức nấu ăn, làm bánh, review đồ bếp. Chia sẻ tình yêu gia đình, bếp, vườn, chụp ảnh, du lịch...</p>
 			</div>
 			</aside><aside id="penci_social_widget-2" class="widget penci_social_widget"><h4 class="widget-title penci-border-arrow"><span class="inner-arrow">Liên hệ với tôi</span></h4>

@@ -28,8 +28,8 @@ User.create([
 # Seed categories
 categories = Category.create([
   {
-    name: 'Ký ức Hà Nội',
-    description: 'Cách chế biến những món ăn đậm nét Hà Thành xưa'
+    name: 'Góc review',
+    description: 'Trải nghiệm của tác giả về những đặc sản vùng miền trên khắp đất nước Việt Nam'
   },
   {
     name: 'Món ngon ngày Tết',
@@ -44,8 +44,8 @@ categories = Category.create([
     description: 'Cách chế biến những món ăn được yêu thích ở Sài Gòn'
   },
   {
-    name: 'Góc review',
-    description: 'Trải nghiệm của tác giả về những đặc sản vùng miền trên khắp đất nước Việt Nam'
+    name: 'Ký ức Hà Nội',
+    description: 'Cách chế biến những món ăn đậm nét Hà Thành xưa'
   },
 ])
 
@@ -57,7 +57,7 @@ categories.each do |category|
       time_to_cook: 0.75,
       energy: 2000,
       recipe: 'Bake rolls following directions on package. In a small bowl, combine peppers, bacon and cream cheese. Mix well. In a large bowl, combine garlic, salt and pepper. Crumble beef over garlic mixture and mix well. Shape into twelve 3 to 4-inch patties. Spoon pepper mixture onto center of six patties. Top with remaining patties and press edges firmly to seal. Grill burgers and top with cheese. Split rolls and fill with burgers, tomato, lettuce and guacamole.',
-      is_premium: true,
+      is_premium: false,
       category: category
     },
     {
@@ -65,7 +65,7 @@ categories.each do |category|
       time_to_cook: 1,
       energy: 3000,
       recipe: 'In a saucepan, combine sugar, flour, and salt; stir in milk and mix well. Cook over medium heat, stirring constantly, until the mixture thickens and comes to a boil; boil for 2 minutes. Remove from the heat. Stir a small amount of cream mixture into egg yolks; return all to saucepan. Cook for 2 minutes, stirring constantly; remove from the heat. Add butter and vanilla; mix well; allow to cool slightly. Slice the bananas and place evenly in pastry shell; pour cream mixture over bananas. Cool; before serving, garnish with whipped cream or Cool Whip and bananas. Refrigerate any leftovers.',
-      is_premium: true,
+      is_premium: false,
       category: category
     },
     {
@@ -73,7 +73,7 @@ categories.each do |category|
       time_to_cook: 0.25,
       energy: 1500,
       recipe: 'Melt butter in medium saucepan with olive oil over medium/low heat. Add the garlic, cream, white pepper and bring mixture to a simmer.Stir often.Add the Parmesan cheese and simmer sauce for 8-10 minutes or until sauce has thickened and is smooth.When sauce has thickened add the Mozzarella cheese and stir until smooth. STIR FREQUENTLY.While the sauce cooks, boil noodles for 3-5 minutes. Place pasta on serving plates and spoon sauce over pasta. Garnish with parsley, freshly cracked black pepper and more grated parmesan (optional).',
-      is_premium: true,
+      is_premium: false,
       category: category
     },
     {
@@ -89,7 +89,7 @@ categories.each do |category|
       time_to_cook: 1.5,
       energy: 2000,
       recipe: 'Combine meat, crumbs, onion, eggs, parsley and salt; mix lightly. Shape into approimately 18 meatballs. Brown in margarine; drain. Place in casserole dish. Combine preserves and barbecue sauce; pour over meatballs. Bake at 350 degrees for 45 minutes.',
-      is_premium: true,
+      is_premium: false,
       category: category
     },
     {
@@ -105,7 +105,7 @@ categories.each do |category|
       time_to_cook: 0.5,
       energy: 2000,
       recipe: 'In a large bowl beat cream cheese until smooth. Add peanut butter and 1 cup of the sugar. Beat until well blended. In a small bowl beat 1/2 cup of whipping cream until soft peaks form. Gradually beat in remaining 1/4 cup sugar and vanilla. Slowly fold cream mixture into peanut butter mixture. Pour into cooled pie shell. For the topping-in a double boiler over hot but not boiling water melt chocolate and cream together, whisking until smooth. Cool to luke warm and then pour over pie. You may need to rock the pie back and forth to get even coverage. One inch in from the edge form a circle with the chopped nuts and then chill for at least 2 hours. Once topping has set you can cover with plastic wrap. You can freeze this pie for storage or for a frozen summer treat.',
-      is_premium: true,
+      is_premium: false,
       category: category
     },
     {
@@ -113,7 +113,7 @@ categories.each do |category|
       time_to_cook: 1.5,
       energy: 3000,
       recipe: 'Preheat oven to 400°F and have ready a pie shield and a large rimmed cookie sheet. Line a DEEP DISH glass pie plate with the pie pastry round, fluting the edges decoratively as desired. Combine in order the pumpkin, sugar, salt, cinnamon, ginger, nutmeg, and cloves. Lightly beat eggs together with both milks, then add to the pumpkin mixture, stirring well to combine--it will be rather thin. Pour as much filling as you can into unbaked pie pastry and bake at 400°F for 50 minutes (or until knife inserted halfway between center and edge comes out without any goo on it). If there is any extra filling use to fill a smaller mini pie plate or discard.',
-      is_premium: true,
+      is_premium: false,
       category: category
     },
     {
@@ -121,7 +121,7 @@ categories.each do |category|
       time_to_cook: 1,
       energy: 1500,
       recipe: 'Preheat oven to 375°F. Fit pie crust into pie plate. In a large bowl, mix sliced apples, lemon juice, both sugars,flour, cinnamon and nutmeg. Pile into crust. Prepare topping: In a medium bowl, with a pastry blender or a fork, mix flour, both sugars, and butter until coarsely crumbled. Sprinkle evenly over apples. Bake at 375°F for 50 minutes.',
-      is_premium: true,
+      is_premium: false,
       category: category
     },
     {
@@ -145,7 +145,7 @@ categories.each do |category|
     	time_to_cook: 2.5,
     	energy: 5000,
     	recipe: 'Heat the oil in a large heavy stock pot. Roll the meat in the flour and shake off the excess. Brown the meat in the pot. While the meat is browning, mix the tomato sauce, stock, and the herbs and spices together in a bowl. Once the meat has browned, arrange the onions and carrots over the meat and add the stock mixture. Partially cover the pot and simmer gently for about 2 hours. While the stew is simmering, make the dumpling dough. Sift together the flour and baking powder. Add the spices. In a separate bowl, add the milk to the beaten egg, then stir into the flour mixture. Add the melted butter and stir to blend. The dough should be soft but not sticky. On a lightly floured surface, roll out the dough to about a 1/4 inch thickness and cut with a very small circular cutter (like a doughnut hole cutter). Once the stew has simmered for 2 hours, drop the dumplings into the stew, cover and simmer for 10 minutes, then serve.',
-    	is_premium: true,
+    	is_premium: false,
     	category: category
     },
     {
@@ -153,7 +153,7 @@ categories.each do |category|
     	time_to_cook: 0.5,
     	energy: 1000,
     	recipe: 'Heat oven to 375 degrees. Press each biscuit to 6-inch round and place on greased cookie sheets. Top with pizza sauce, cheese and whatever toppings you like. Bake 10-15 minutes.',
-    	is_premium: true,
+    	is_premium: false,
     	category: category
     },
     {
@@ -169,7 +169,7 @@ categories.each do |category|
     	time_to_cook: 0.5,
     	energy: 1000,
     	recipe: 'Preheat oven to 450 degrees F. Slice a thin layer off the top of each sub roll. Remove some of the bread inside to form a bread "boat". I like to reserve the unused bread chunks for fresh breadcrumbs, or they can be used in bread pudding. Brush inside of hollowed rolls with olive oil. Fill bottom of buns with 1/2 cup shredded mozzarella each. Place on a baking sheet and bake until buns are lightly browned and cheese is melted. Fill subs with Fresh Tomato Sauce and 3 meatballs. Top with more sauce, sprinkle with the grated cheese (and more mozzarella if you like). Return subs to oven briefly, just to melt the cheese on top. Be sure to have lots of napkins handy, and enjoy.',
-    	is_premium: true,
+    	is_premium: false,
     	category: category
     },
     {
