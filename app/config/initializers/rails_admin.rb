@@ -24,7 +24,7 @@ RailsAdmin.config do |config|
 
   config.model 'User' do
     list do
-      exclude_fields :remember_created_at
+      exclude_fields :remember_created_at, :reset_password_sent_at
     end
     edit do
       exclude_fields :remember_created_at, :reset_password_sent_at, :replies, :comments, :bookmarks, :ratings, :premium_purchases
@@ -77,7 +77,7 @@ RailsAdmin.config do |config|
       except ['Admin', 'Bookmark', 'Rating']
     end
     show_in_app do
-      except ['Bookmark']
+      except ['Bookmark', 'Comment', 'Rating']
     end
     ## With an audit adapter, you can add:
     # history_index

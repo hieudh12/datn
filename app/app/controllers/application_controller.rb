@@ -68,9 +68,18 @@ private
   end
 
   def set_variables
-    @category_1 = Category.where(name: "Ký ức Hà Nội").take
+    @category_1 = Category.where(name: "Hanoi foods").take
     @recipes_1 = @category_1.recipes.order('created_at DESC').limit(4)
-    @category_rv = Category.where(name: "Góc review").take
+    @category_2 = Category.where(name: "Saigon foods").take
+    @recipes_2 = @category_2.recipes.order('created_at DESC').limit(4)
+    @category_3 = Category.where(name: "Central foods").take
+    @recipes_3 = @category_3.recipes.order('created_at DESC').limit(4)
+    @category_4 = Category.where(name: "Tet foods").take
+    @recipes_4 = @category_4.recipes.order('created_at DESC').limit(4)
+    @category_5 = Category.where(name: "Summer foods").take
+    @recipes_5 = @category_5.recipes.order('created_at DESC').limit(4)
+    @category_rv = Category.where(name: "Review").take
     @recipes_rv = @category_rv.recipes.order('created_at DESC').limit(5)
+    @recipes_rd = Recipe.offset(Recipe.count - 6).limit(4)
   end
 end
