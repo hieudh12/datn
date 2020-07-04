@@ -79,6 +79,7 @@ private
     @category_5 = Category.where(name: "Summer foods").take
     @recipes_5 = @category_5.recipes.order('created_at DESC').limit(4)
     @category_rv = Category.where(name: "Review").take
+    @recipes_6 = @category_rv.recipes.order('created_at DESC').limit(4)
     @recipes_rv = @category_rv.recipes.order('created_at DESC').limit(5)
     @recipes_rd = Recipe.offset(Recipe.count - 6).limit(4)
   end

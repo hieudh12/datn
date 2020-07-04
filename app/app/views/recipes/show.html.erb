@@ -268,11 +268,10 @@
                   <div id="reply<%= reply.id%>" style="display:none;" class="form-group">
                     <%= form_for(@comment.replies.build, :url => url_for(:controller => 'comments', :action => 'update_reply'), method: "put") do |f| %>
                     <%= f.hidden_field :id, value: reply.id%>
-                    <input type="text" name="reply[content]" class="form-control" value=<%= reply.content%>>
+                    <input type="text" name="reply[content]" class="form-control" value="<%= reply.content %>" >
                     <div class="row">
                       <div class="col-6">
-                        <button class="btn mt-30 pull-right" type="submit" style="background-color:#b0c364;color:#fff;">Update
-                          Comment</button>
+                        <button class="btn mt-30 pull-right" type="submit" style="background-color:#b0c364;color:#fff;">Update Comment</button>
                       </div>
                       <div class="col-6">
                         <button class="btn btn-default mt-30" type="button" onclick="$('#reply<%= reply.id%>').hide()">Cancel</button>

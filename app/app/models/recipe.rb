@@ -11,6 +11,9 @@ class Recipe < ApplicationRecord
     has_many :bookmarks, dependent: :destroy
     has_many :ratings, dependent: :destroy
 
+    validates :name, presence: true, uniqueness: {case_sensitive: false}
+    validates :recipe, presence: true
+
     paginates_per 6
 
     def get_average_rating
