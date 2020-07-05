@@ -44,11 +44,11 @@
               <span><%= recipe.created_at.strftime("%b %d, %Y") %></span>
             </div>
           </div>
-          <div style="overflow: hidden;text-overflow: ellipsis;height:106px;" class="item-content">
+          <div style="overflow: hidden;text-overflow: ellipsis;height:107px;" class="item-content">
             <%= recipe.recipe.html_safe %>
           </div>
           <div class="penci-readmore-btn">
-            <a class="penci-btn-readmore" href="<%= recipe.is_premium? && !current_user&.is_premium? ? premium_info_path : recipe_path(recipe) %>">Xem Tiếp<i class="fas fa-angle-double-right"></i></a>
+            <a class="penci-btn-readmore" href="<%= recipe.is_premium? && !current_user&.is_premium? ? premium_info_path : recipe_path(recipe) %>">Read more<i class="fas fa-angle-double-right"></i></a>
           </div>
     <div class="penci-post-box-meta penci-post-box-grid">
       <div class="penci-post-share-box">
