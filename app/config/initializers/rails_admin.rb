@@ -64,7 +64,7 @@ RailsAdmin.config do |config|
     dashboard                     # mandatory
     index                         # mandatory
     new do
-      except ['Admin', 'Bookmark', 'Comment', 'Reply', 'Rating', 'User', 'PremiumPurchase']
+      except ['Admin', 'Bookmark', 'Comment', 'Reply', 'Rating', 'User']
     end
     bulk_delete
     show do
